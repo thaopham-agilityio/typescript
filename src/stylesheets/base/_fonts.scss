@@ -1,0 +1,45 @@
+// ======================================================
+// Base :: Fonts
+// ======================================================
+
+/* Acme Font */
+@font-face {
+  font-family: "Acme";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/acme/Acme-Regular.ttf') format('truetype');
+}
+
+/* Helvetica Neue Font */
+@font-face {
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('../assets/fonts/helvetica-neue/HelveticaNeue-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "Helvetica Neue";
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url('../assets/fonts/helvetica-neue/HelveticaNeue-Italic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/helvetica-neue/HelveticaNeue-Roman.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../assets/fonts/helvetica-neue/HelveticaNeue-Medium.ttf') format('truetype');
+}

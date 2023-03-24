@@ -1,0 +1,178 @@
+// ======================================================
+// Base :: Modal
+// ======================================================
+
+.modal {
+  @extend %fixed;
+  @extend %margin-center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  font-family: $secondary-family;
+
+  /* Overlay */
+  &-overlay {
+    @extend %fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+  }
+
+  &-message {
+    @extend %text-center;
+    font-family: $secondary-family;
+    font-size: $text-modal-message;
+    font-weight: $font-weight-medium;
+  }
+
+  /* Modal header */
+  &-header {
+    @extend %text-center;
+    margin-top: 30px;
+  }
+
+  &-title {
+    @extend %text-uppercase;
+    font-family: $secondary-family;
+    font-size: $text-modal-title;
+    font-weight: $font-weight-medium;
+  }
+
+  /* Modal container */
+  &-container {
+    @extend %margin-center;
+    max-width: 800px;
+    background-color: $bg-color-secondary;
+    border: solid 1px $border-modal-container;
+    border-radius: 8px;
+  }
+
+  /* Modal label */
+  &-label {
+    margin: 10px 0 5px;
+    font-size: $text-modal-label;
+    font-weight: $font-weight-medium;
+  }
+
+  &-body {
+    padding: 20px;
+  }
+
+  &-message {
+    margin: 20px;
+  }
+
+  /* Modal footer */
+  &-footer {
+    @extend %flex;
+    @extend %justify-center;
+    margin: 20px 0;
+  }
+
+}
+
+/* Modal form */
+.product-form,
+.input-row {
+  @extend %flex;
+  @extend %flex-column;
+}
+
+.product-form {
+  min-width: 600px;
+  margin: 20px;
+
+  &.detail {
+    @extend %flex-row;
+    margin-top: 0;
+  }
+}
+
+.input-row {
+  &.error {
+    .validate-message {
+      display: block;
+    }
+  }
+
+  &.success {
+    .validate-message {
+      display: none;
+    }
+  }
+}
+
+/* Display/hide attributes */
+.display {
+  @extend %visibility;
+}
+
+.hide {
+  @extend %none;
+}
+
+/* Modal input */
+.form-input {
+  font-family: $secondary-family;
+  margin: 5px 0;
+  padding: 8px 10px;
+  border: 1px solid $border-form-input;
+  border-radius: 5px;
+}
+
+.validate-message {
+  font-size: $text-modal-validate;
+  color: $color-danger;
+}
+
+/* Modal radio button */
+.form-radio {
+  margin: 10px 0;
+}
+
+/* Close icon */
+button {
+  @extend %border-0;
+  @extend %padding-0;
+  @extend %cursor-pointer;
+  background: 0 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  &#close {
+    @extend %absolute;
+    top: 15px;
+    right: 20px;
+    font-size: $text-modal-close;
+    font-weight: 700;
+    line-height: 1;
+    color: $color-primary;
+    text-shadow: 0 1px 0 $color-secondary;
+    opacity: .2;
+
+    &:hover,
+    &:focus {
+      @extend %cursor-pointer;
+      @extend %text-decoration-none;
+      color: $color-primary;
+      opacity: .5;
+    }
+  }
+}
+
+/* Confirm modal */
+.confirm-modal {
+  @extend %fixed;
+  @extend %margin-center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}

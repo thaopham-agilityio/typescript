@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+    <title>Javascript training</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Pratice html and css">
+    <meta name="author" content="Thao Pham">
+    <link rel="apple-touch-icon" href="./assets/images/logo-nike.svg">
+    <link href="./stylesheets/app.scss" rel="stylesheet">
+  </head>
+
+  <body id="page-body">
+    <!-- Header -->
+    <header class="header__page">
+      <section  class="header__wrapper">
+        <!-- Header logo -->
+        <a class="header__wrapper-logo" href="./" title="Nike Products">
+          <img class="header__logo" loading="lazy" src="./assets/images/logo-nike.svg" width="81" height="29" alt="Logo Nike">
+        </a>
+        <!-- End Header logo -->
+
+        <!-- Header slogan -->
+        <section class="header__wrapper-slogan">
+          Just do it
+        </section>
+        <!-- End Header slogan -->
+
+        <!-- Header profile -->
+        <section class="header__wrapper-profile">
+          <p class="header__wrapper-name">Christian Russell</p>
+          <img class="header__wrapper-avatar" src="./assets/images/avatar.png"  alt="Avatar">
+        </section>
+        <!-- End Header profile -->
+      </section>
+    <!-- End of Header -->
+    </header>
+    <!-- Main -->
+    <main class="main">
+      <section class="products">
+        <!-- Head products -->
+        <section class="products__head">
+          <!--Add button-->
+          <button class="btn btn-primary btn-add-product" id="open-modal">Add new</button>
+
+          <!--Search bar-->
+          <div class="search-bar">
+            <label for="search-input" aria-label="Search"></label>
+            <input type="text" class="search-input" id="search-input" />
+          </div>
+        </section>
+        <!-- End of Head products -->
+
+        <!-- Contents products -->
+        <section class="products__contents">
+          <!-- List products -->
+          <div class="products__list display" id="list-products"></div>
+          <div class="loading-indicator">
+            <div class="loading"></div>
+          </div>
+          <!-- End of List products -->
+        </section>
+        <!-- End of Contents products -->
+      </section>
+      <div class="modal-overlay hide"></div>
+    </main>
+    <!-- End of Main Section -->
+
+    <!-- Confirm Modal -->
+    <div class="confirm-modal hide" id="confirm-modal">
+      <div class="modal-container">
+        <header class="modal-header">
+          <h2 class="modal-title">Delete product</h2>
+        </header>
+        <div class="modal-body">
+          <p class="modal-message">Are you sure to delete this product?</p>
+        </div>
+        <footer class="modal-footer">
+          <button class="btn btn-secondary" id="delete-cancel">Cancel</button>
+          <button class="btn btn-danger btn-delete-product" id="delete">Delete</button>
+        </footer>
+      </div>
+    </div>
+
+    <script defer type="module" src="./scripts/app.ts"></script>
+  </body>
+
+</html>

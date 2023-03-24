@@ -1,0 +1,8 @@
+# cache
+.parcel-cache/
+
+# compiled output
+dist/
+
+# dependencies
+node_modules/

@@ -1,0 +1,21 @@
+#show-messages {
+  @extend %fixed;
+  @extend %margin-center;
+  @extend %hide;
+  @extend %text-center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  font-family: $secondary-family;
+  font-size: $text-medium;
+  background-color: $bg-color-tertiary;
+  border: 1px solid $border-main;
+  border-radius: 4px;
+  padding: 16px;
+    transition: opacity 2000ms cubic-bezier(.19, 1, .22, 1) 1200ms, -webkit-transform 2000ms cubic-bezier(.19, 1, .22, 1) 1200ms;
+
+  &.show {
+    @extend %visibility;
+  }
+}

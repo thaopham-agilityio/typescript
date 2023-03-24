@@ -1,0 +1,74 @@
+// ======================================================
+// Abstracts :: Variables
+// ======================================================
+
+/* Colors */
+$color-primary: #000;
+$color-secondary: #fff;
+$color-tertiary: #d9d9d9;
+$color-default: $color-primary;
+$color-header: $color-secondary;
+$color-placeholder: #e6e6e6;
+$color-info: #5bc0de;
+$color-danger: #d9534f;
+$color-success: #449d44;
+$color-disabled: #aaa;
+
+/* Background Colors */
+$bg-color-primary: #111;
+$bg-color-secondary: $color-secondary;
+$bg-color-tertiary: #f1f2f3;
+$bg-color-info: $color-info;
+$bg-color-danger: $color-danger;
+$bg-color-success: $color-success;
+$bg-color-disabled: $color-tertiary;
+
+/* Border Colors */
+$border-main: $color-placeholder;
+
+/* Font-Family */
+$font-primary: "Acme", sans-serif;
+$font-secondary: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+$default-family: $font-primary;
+$secondary-family: $font-secondary;
+
+/* Font-Size */
+$text-small: 12px;
+$text-medium: 16px;
+$text-large: 30px;
+
+/* Font-Weight */
+$font-weight-small: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+
+/* Body */
+$text-color-body: $color-default;
+$text-size-body: $text-medium;
+$font-weight-body: $font-weight-normal;
+$font-family-body: $default-family;
+
+/* Header */
+$text-slogan: $text-large;
+$text-profile: 18px;
+$line-height-profile: 22px;
+
+/* Products */
+$text-content-normal: 14px;
+$text-none-content: 18px;
+
+/* Buttons */
+$text-button-normal: 14px;
+$text-button-action: 13px;
+
+/* Modal */
+$text-modal-message: $text-medium;
+$text-modal-title: 18px;
+$text-modal-label: 14px;
+$text-modal-validate: 12px;
+$text-modal-close: $text-large;
+$border-modal-container: #dfe0eb;
+$border-form-input: #ccc;
+
+/* Width */
+$page-max-width: 1440px;

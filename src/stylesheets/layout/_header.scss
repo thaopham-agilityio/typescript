@@ -1,0 +1,48 @@
+// ======================================================
+// Layout :: Header
+// ======================================================
+
+.header {
+  &__page {
+    @extend %relative;
+    @extend %margin-center;
+    padding: 25px 50px;
+    background-color: $bg-color-primary;
+    max-width: 1340px;
+  }
+
+  &__wrapper {
+    @extend %flex;
+    @extend %justify-space-between;
+    @extend %item-center;
+
+    &-slogan,
+    &-profile {
+      @extend %text-uppercase;
+      color: $color-secondary;
+    }
+
+    &-slogan {
+      font-size: $text-slogan;
+      line-height: 38px;
+    }
+
+    &-profile {
+      @extend %flex;
+      @extend %item-center;
+      font-size: $text-profile;
+      line-height: 22px;
+    }
+
+    &-name {
+      max-width: 100px;
+      text-align: right;
+      margin-right: 20px;
+    }
+
+    &-avatar {
+      width: 60px;
+      height: 60px;
+    }
+  }
+}

@@ -1,0 +1,81 @@
+// ======================================================
+// Components :: Button
+// ======================================================
+
+.btn {
+  @extend %inline-block;
+  @extend %text-center;
+  @extend %cursor-pointer;
+  margin-bottom: 0;
+  margin-right: 10px;
+  padding: 8px 20px;
+  white-space: nowrap;
+  vertical-align: middle;
+  touch-action: manipulation;
+  background-image: none;
+  border: 1px solid transparent;
+  color: $color-secondary;
+  font-size: $text-button-normal;
+  border-radius: 20px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  &-add-product {
+    background: url("../assets/icons/plus.svg") 10px no-repeat;
+    background-size: 16px;
+    padding-left: 30px;
+  }
+
+  &-view-product {
+    background: url("../assets/icons/list.svg") 10px no-repeat;
+    background-size: 16px;
+  }
+
+  &-edit-product {
+    background: url("../assets/icons/edit.svg") 10px no-repeat;
+    background-size: 16px;
+  }
+
+  &-delete-product {
+    background: url("../assets/icons/trash.svg") 10px no-repeat;
+    background-size: 16px;
+  }
+
+  &-view-product,
+  &-edit-product,
+  &-delete-product {
+    padding: 5px 10px 5px 30px;
+    font-size: $text-button-action;
+  }
+
+  &-primary {
+    background-color: #1f75cb;
+  }
+
+  &-secondary {
+    color: $color-primary;
+    background-color: #EFEFEF;
+  }
+
+  &-info {
+    background-color: $bg-color-info;
+  }
+
+  &-success {
+    background-color: $bg-color-success;
+  }
+
+  &-danger {
+    background-color: $bg-color-danger;
+  }
+}
+
+button:disabled,
+button[disabled] {
+  background-color: $bg-color-disabled;
+  color: $color-disabled;
+  cursor: not-allowed;
+  pointer-events: none;
+}

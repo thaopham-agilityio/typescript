@@ -4,6 +4,7 @@
   "description": "Practice typescript",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "parcel build src/index.html",
     "start": "NODE_ENV=development parcel src/index.html"
   },
   "devDependencies": {

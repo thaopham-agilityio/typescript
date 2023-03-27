@@ -14,9 +14,7 @@ export const checkValidate = (): boolean => {
   let isCheck = true;
 
   if (!inputName.value) {
-    submitBtn.disabled = true;
-    inputName.addEventListener('keyup', stateHandleName);
-    setError(inputName, 'Please enter product name');
+    setError(inputName, submitBtn, 'Please enter product name');
     isCheck = false;
   } else {
     setSuccess(inputName);
@@ -24,19 +22,21 @@ export const checkValidate = (): boolean => {
 
   if (!inputPrice.value) {
     submitBtn.disabled = true;
-    inputPrice.addEventListener('keyup', stateHandlePrice);
-    setError(inputPrice, 'Please enter product price');
+    setError(inputPrice, submitBtn, 'Please enter product price');
     isCheck = false;
   } else if (Number(inputPrice.value) <= 0) {
-    setError(inputPrice, 'Please enter product price not include negative or equal to 0');
+    setError(
+      inputPrice,
+      submitBtn,
+      'Please enter product price not include negative or equal to 0'
+    );
   } else {
     setSuccess(inputPrice);
   }
 
   if (!inputDesc.value) {
     submitBtn.disabled = true;
-    inputDesc.addEventListener('keyup', stateHandleDesc);
-    setError(inputDesc, 'Please enter product description');
+    setError(inputDesc, submitBtn, 'Please enter product description');
     isCheck = false;
   } else {
     setSuccess(inputDesc);
@@ -44,8 +44,7 @@ export const checkValidate = (): boolean => {
 
   if (!inputUrl.value || !inputUrl.value.match(URL_REGEX)) {
     submitBtn.disabled = true;
-    inputUrl.addEventListener('keyup', stateHandleUrl);
-    setError(inputUrl, 'Please enter valid product Url');
+    setError(inputUrl, submitBtn, 'Please enter valid product Url');
     isCheck = false;
   } else {
     setSuccess(inputUrl);
@@ -59,52 +58,19 @@ const setSuccess = (ele: HTMLInputElement | HTMLTextAreaElement) => {
   parentEle.classList.add('success');
 };
 
-const setError = (ele: HTMLInputElement | HTMLTextAreaElement, message: string) => {
+const setError = (
+  ele: HTMLInputElement | HTMLTextAreaElement,
+  btn: HTMLButtonElement,
+  message: string
+) => {
   let parentEle = ele.parentNode as HTMLDivElement;
   parentEle.classList.add('error');
   (parentEle.querySelector('.validate-message') as HTMLElement).textContent = message;
-};
+  btn.disabled = true;
 
-const stateHandleName = () => {
-  const inputName = document.getElementById('inputName') as HTMLInputElement;
-  const submitBtn = document.getElementById('submit') as HTMLButtonElement;
-  if (!inputName.value) {
-    submitBtn.disabled = true;
-  } else {
-    submitBtn.disabled = false;
-    setSuccess(inputName);
-  }
-};
-
-const stateHandlePrice = () => {
-  const inputPrice = document.getElementById('inputPrice') as HTMLInputElement;
-  const submitBtn = document.getElementById('submit') as HTMLButtonElement;
-  if (!inputPrice.value) {
-    submitBtn.disabled = true;
-  } else {
-    submitBtn.disabled = false;
-    setSuccess(inputPrice);
-  }
-};
-
-const stateHandleDesc = () => {
-  const inputDesc = document.getElementById('inputDesc') as HTMLInputElement;
-  const submitBtn = document.getElementById('submit') as HTMLButtonElement;
-  if (!inputDesc.value) {
-    submitBtn.disabled = true;
-  } else {
-    submitBtn.disabled = false;
-    setSuccess(inputDesc);
-  }
-};
-
-const stateHandleUrl = () => {
-  const inputUrl = document.getElementById('productUrl') as HTMLInputElement;
-  const submitBtn = document.getElementById('submit') as HTMLButtonElement;
-  if (!inputUrl.value) {
-    submitBtn.disabled = true;
-  } else {
-    submitBtn.disabled = false;
-    setSuccess(inputUrl);
-  }
+  ele.addEventListener('keyup', () => {
+    if (ele.value) {
+      btn.disabled = false;
+    }
+  });
 };

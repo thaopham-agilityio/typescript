@@ -1,5 +1,6 @@
 import { Product, NewProduct, EditProduct, Action } from '../interfaces/product.interface';
 import { createElement, displayElement } from '../helpers/dom-elements';
+import { InputName } from '../types/input-name';
 import { checkValidate } from '../helpers/validation';
 import {
   productsListTemple,
@@ -120,6 +121,46 @@ export default class ProductView {
   }
 
   /**
+   * Disabled button submit when load add product page
+   * @param inputs elements
+   * @returns boolean
+   */
+  disabledButton = () => {
+    let inputs = document.querySelectorAll('input, textarea');
+    const submitBtn = document.getElementById('submit') as HTMLButtonElement;
+    let inputValidator: InputName = {
+      productName: false,
+      productPrice: false,
+      productDesc: false,
+      productUrl: false,
+    };
+
+    submitBtn.disabled = true;
+
+    inputs.forEach((input) => {
+      input.addEventListener('input', (event) => {
+        const target = event.target as HTMLInputElement;
+        let name = target.getAttribute('name');
+        if (target.value.length > 0) {
+          inputValidator[name] = true;
+        } else {
+          inputValidator[name] = false;
+        }
+
+        let allTrue = Object.keys(inputValidator).every((item) => {
+          return inputValidator[item] === true;
+        });
+
+        if (allTrue) {
+          submitBtn.disabled = false;
+        } else {
+          submitBtn.disabled = true;
+        }
+      });
+    });
+  };
+
+  /**
    * Add new product
    * @param {function} handleNewProduct
    */
@@ -128,6 +169,7 @@ export default class ProductView {
     document.getElementById('open-modal')?.addEventListener('click', (e) => {
       e.preventDefault();
       this.openModal();
+      this.disabledButton();
       const submitBtn = document.getElementById('submit');
       const cancelBtn = document.getElementById('cancel');
 

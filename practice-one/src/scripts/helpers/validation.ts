@@ -1,4 +1,6 @@
 import { URL_REGEX } from '../constants/product.constant';
+import { setSuccess } from './form-success-message';
+import { setError } from './form-error-message';
 
 /**
  * Validate input
@@ -51,26 +53,4 @@ export const checkValidate = (): boolean => {
   }
 
   return isCheck;
-};
-
-const setSuccess = (ele: HTMLInputElement | HTMLTextAreaElement) => {
-  let parentEle = ele.parentNode as HTMLDivElement;
-  parentEle.classList.add('success');
-};
-
-const setError = (
-  ele: HTMLInputElement | HTMLTextAreaElement,
-  btn: HTMLButtonElement,
-  message: string
-) => {
-  let parentEle = ele.parentNode as HTMLDivElement;
-  parentEle.classList.add('error');
-  (parentEle.querySelector('.validate-message') as HTMLElement).textContent = message;
-  btn.disabled = true;
-
-  ele.addEventListener('keyup', () => {
-    if (ele.value) {
-      btn.disabled = false;
-    }
-  });
 };

@@ -71,17 +71,17 @@ export const productModal = ({
         <form class="product-form">
           <div class="input-row">
             <label for="productName" class="modal-label">Product name</label>
-            <input type="text" class="form-input" id="productName" name="productName" placeholder="Product name" value="${productName}">
+            <input type="text" class="form-input" name="productName" id="productName" placeholder="Product name" value="${productName}">
             <p class="validate-message" id="validateProductName"></p>
           </div>
           <div class="input-row">
             <label for="productPrice" class="modal-label">Product price</label>
-            <input type="number" min="1" class="form-input" id="productPrice" name="productPrice" placeholder="Product price" value="${price}">
+            <input type="number" min="1" class="form-input" name="productPrice" id="productPrice" placeholder="Product price" value="${price}">
             <p class="validate-message" id="validateProductPrice"></p>
           </div>
           <div class="input-row">
             <label for="productDesc" class="modal-label">Product description</label>
-            <textarea rows="5" class="form-input" id="productDesc" name="productDesc" placeholder="Product description" value="${description}">${description}</textarea>
+            <textarea rows="5" class="form-input" name="productDesc" id="productDesc" placeholder="Product description" value="${description}">${description}</textarea>
             <p class="validate-message" id="validateProductDesc"></p>
           </div>
           <div class="input-row">

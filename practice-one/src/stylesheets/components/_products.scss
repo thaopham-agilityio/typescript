@@ -25,14 +25,14 @@
   }
 
   &__list {
-    padding: 10px 20px;
+    padding: 10px 0;
 
     .desc {
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
-      max-width: 220px;
+      max-width: 300px;
     }
 
     .message {
@@ -58,12 +58,17 @@
 
   &__info {
     @extend %list-style-type-none;
-    margin: 15px 0;
-    width: 100%;
+    @extend %item-center;
+    padding: 10px 20px;
+    width: calc(100% - 40px);
     display: grid;
-    grid-template-columns: 60px 240px 60px 240px auto auto auto;
+    grid-template-columns: 60px 300px 60px 300px auto auto auto;
     grid-gap: 15px;
-    align-items: baseline;
+    border-bottom: 1px solid $border-main;
+
+    &:last-child {
+      @extend %border-0;
+    }
 
     &--detail {
       margin-left: 30px;
@@ -89,14 +94,16 @@
   &__img {
     &--thumb {
       vertical-align: middle;
+      aspect-ratio: 4 / 5;
+      object-fit: contain;
       width: 40px;
-      height: 40px;
       border: 1px solid $border-main;
     }
 
     &--detail {
+      aspect-ratio: 4 / 5;
+      object-fit: contain;
       width: 300px;
-      height: 300px;
     }
   }
 }

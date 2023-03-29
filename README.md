@@ -36,7 +36,8 @@
 - prettier: v2.8.4
 - eslint: v8.35.0
 - uuid: v9.0.0
-- axios: ^1.3.4
+- axios: ^1.3.4,
+- husky": ^8.0.3
 
 ## Main app features
 
@@ -83,22 +84,16 @@ cd typescript-training
 git checkout feature/practice-one
 ```
 
-- Step 4: Go to folder practice-one
-
-```
-cd practice/practice-one
-```
-
-- Step 5: Install packages
+- Step 4 Install packages
 
 ```
 npm install
 ```
 
-- Step 6: Run project
+- Step 5: Run project
 
 ```
 npm run start
 ```
 
-- Step 7: Open browser and access the link http://localhost:1234
+- Step 6: Open browser and access the link http://localhost:1234

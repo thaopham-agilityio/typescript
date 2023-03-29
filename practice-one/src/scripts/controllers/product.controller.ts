@@ -1,4 +1,4 @@
-import { getErrorMessages } from '../helpers/get-error-messages';
+import { getErrorMessages } from '../helpers/server-error-messages';
 import { Product, NewProduct, EditProduct } from '../interfaces/product.interface';
 import ProductModel from '../models/product.model';
 import ProductView from '../views/product.view';

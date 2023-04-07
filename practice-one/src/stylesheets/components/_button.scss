@@ -82,7 +82,7 @@ button[disabled] {
 
 @media screen and (max-width: 767px) {
   .btn {
-    margin-right: 5px;
+    margin-right: 0px;
 
     &-add-product {
       padding: 5px 8px 5px 24px;
@@ -93,11 +93,9 @@ button[disabled] {
     &-view-product,
     &-edit-product,
     &-delete-product {
-      padding: 3px 5px;
-      background-position: 5px;
-      background-size: $bg-size-secondary;
-      font-size: $text-button-small;
-      background-image: none;
+      display: block;
+      margin-bottom: 5px;
+      min-width: 48px;
     }
   }
 }

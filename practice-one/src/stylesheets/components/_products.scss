@@ -135,6 +135,25 @@
       padding: 5px;
       width: calc(100% - 10px);
     }
+
+    &__img {
+      &--detail {
+        width: 100px;
+      }
+    }
+
+    &__title {
+      font-size: $text-medium;
+    }
+
+    &__price,
+    &__desc {
+      font-size: $text-small;
+    }
+
+    &__detail {
+      padding: 0 20px;
+    }
   }
 
   .search-input {

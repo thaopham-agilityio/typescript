@@ -176,3 +176,23 @@ button {
   transform: translate(-50%, -50%);
   z-index: 3;
 }
+
+@media screen and (max-width: 767px) {
+  .modal {
+    &-container {
+      max-width: 100%;
+    }
+  }
+
+  .product {
+    &-form {
+      min-width: 320px;
+      margin: 0 20px;
+
+      &.detail {
+        align-items: flex-start;
+        margin-left: 0;
+      }
+    }
+  }
+}

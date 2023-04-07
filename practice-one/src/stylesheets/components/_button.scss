@@ -84,13 +84,20 @@ button[disabled] {
   .btn {
     margin-right: 5px;
 
+    &-add-product {
+      padding: 5px 8px 5px 24px;
+      background-size: $bg-size-secondary;
+      font-size: $text-small;
+    }
+
     &-view-product,
     &-edit-product,
     &-delete-product {
-      padding: 3px 5px 3px 18px;
+      padding: 3px 5px;
       background-position: 5px;
       background-size: $bg-size-secondary;
       font-size: $text-button-small;
+      background-image: none;
     }
   }
 }

@@ -118,11 +118,29 @@
 
 @media screen and (max-width: 767px) {
   .products {
+    &__head {
+      padding: 10px;
+    }
+
+    &__list {
+      .message {
+        font-size: $text-small;
+        height: 20px;
+      }
+    }
+
     &__info {
       display: flex;
       font-size: $text-small;
       padding: 5px;
       width: calc(100% - 10px);
     }
+  }
+
+  .search-input {
+    padding: 5px 30px;
+    border-radius: 5px;
+    background-size: 18px;
+    font-size: $text-small;
   }
 }

@@ -115,3 +115,14 @@
   padding: 8px 40px;
   width: auto;
 }
+
+@media screen and (max-width: 767px) {
+  .products {
+    &__info {
+      display: flex;
+      font-size: $text-small;
+      padding: 5px;
+      width: calc(100% - 10px);
+    }
+  }
+}

@@ -79,3 +79,18 @@ button[disabled] {
   cursor: not-allowed;
   pointer-events: none;
 }
+
+@media screen and (max-width: 767px) {
+  .btn {
+    margin-right: 5px;
+
+    &-view-product,
+    &-edit-product,
+    &-delete-product {
+      padding: 3px 5px 3px 18px;
+      background-position: 5px;
+      background-size: $bg-size-secondary;
+      font-size: $text-button-small;
+    }
+  }
+}

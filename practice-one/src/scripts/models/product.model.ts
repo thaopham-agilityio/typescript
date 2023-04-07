@@ -7,7 +7,7 @@ import {
   addNewProduct,
   deleteProduct,
 } from '../services/product.service';
-import endpoint from '../helpers/endpoints.config';
+import endpoint from '../helpers/endpoints-config';
 
 export default class ProductModel {
   private APIUrl: string;

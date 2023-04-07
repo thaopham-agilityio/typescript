@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { Product, NewProduct, EditProduct } from '../interfaces/product.interface';
 
 /**
@@ -6,8 +7,8 @@ import { Product, NewProduct, EditProduct } from '../interfaces/product.interfac
  * @returns {Promise}
  */
 export const getProducts = async (url: string): Promise<Product[] | undefined> => {
-  const response = await fetch(url);
-  const res: Product[] = await response.json();
+  const response = await axios.get(url);
+  const res: Product[] = await response.data;
 
   return res;
 };

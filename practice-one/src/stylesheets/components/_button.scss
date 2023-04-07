@@ -24,23 +24,23 @@
 
   &-add-product {
     background: url("../assets/icons/plus.svg") 10px no-repeat;
-    background-size: 16px;
+    background-size: $bg-size-primary;
     padding-left: 30px;
   }
 
   &-view-product {
     background: url("../assets/icons/list.svg") 10px no-repeat;
-    background-size: 16px;
+    background-size: $bg-size-primary;
   }
 
   &-edit-product {
     background: url("../assets/icons/edit.svg") 10px no-repeat;
-    background-size: 16px;
+    background-size: $bg-size-primary;
   }
 
   &-delete-product {
     background: url("../assets/icons/trash.svg") 10px no-repeat;
-    background-size: 16px;
+    background-size: $bg-size-primary;
   }
 
   &-view-product,
@@ -51,12 +51,12 @@
   }
 
   &-primary {
-    background-color: #1f75cb;
+    background-color: $bg-color-btn-primary;
   }
 
   &-secondary {
     color: $color-primary;
-    background-color: #EFEFEF;
+    background-color: $bg-color-btn-secondary;
   }
 
   &-info {

@@ -1,4 +1,4 @@
-import { getErrorMessages } from '../helpers/server-error-messages';
+import { getErrorMessages } from '../helpers/server-error';
 import { Product, NewProduct, EditProduct } from '../interfaces/product.interface';
 import ProductModel from '../models/product.model';
 import ProductView from '../views/product.view';
@@ -82,7 +82,7 @@ export default class ProductController {
       this.model.editProduct(id, editProduct);
       const res = await this.model.getDataProducts();
 
-      await this.onListProductChanged(res || []);
+      this.onListProductChanged(res || []);
     } catch (error) {
       const errorMessage: string = getErrorMessages(error);
 

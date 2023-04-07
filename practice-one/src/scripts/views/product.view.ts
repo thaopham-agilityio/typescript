@@ -1,7 +1,8 @@
 import { Product, NewProduct, EditProduct, Action } from '../interfaces/product.interface';
 import { createElement, displayElement } from '../helpers/dom-elements';
 import { InputName } from '../types/input-name';
-import { checkValidate } from '../helpers/validation';
+import { checkValidate } from '../helpers/form-validation';
+import { TIME_OUT } from '../constants/products';
 import {
   productsListTemple,
   productDetailModal,
@@ -27,7 +28,7 @@ export default class ProductView {
    * Apply template to get products
    * @param {Array} products
    */
-  renderProductsTable = (products: Product[]): void => {
+  renderProducts = (products: Product[]): void => {
     products.map((product: Product) => {
       const productTemp = productsListTemple(product);
       this.listProduct.innerHTML += productTemp;
@@ -44,7 +45,7 @@ export default class ProductView {
     }
 
     if (list.length) {
-      return this.renderProductsTable(list.reverse());
+      return this.renderProducts(list.reverse());
     } else {
       const noneProductMessage = createElement('div', 'message');
       noneProductMessage.textContent = 'Have no product yet !';
@@ -61,19 +62,11 @@ export default class ProductView {
   }
 
   /**
-   * Show/hide loading when render list products
-   * @param {boolean} status
-   */
-  toggleLoadingAddProducts(status: boolean): void {
-    displayElement(this.productsList, status, 'loading');
-  }
-
-  /**
    * Add modal to the DOM
    * @param {object} product
    */
-  openModal = (product: Product = {} as Product): void => {
-    const form: string = productModal(product);
+  openModal = (product: Product = {}): void => {
+    const form = productModal(product);
     const reuseModal = createElement('div', 'modal');
     reuseModal.id = 'product-modal';
     reuseModal.innerHTML = form;
@@ -85,8 +78,8 @@ export default class ProductView {
    * Add modal to the DOM
    * @param {object} product
    */
-  openDetailModal = (product: Product = {} as Product): void => {
-    const form: string = productDetailModal(product);
+  openDetailModal = (product: Product): void => {
+    const form = productDetailModal(product);
     const detailModal = createElement('div', 'modal');
     detailModal.id = 'product-detail-modal';
     detailModal.innerHTML = form;
@@ -101,15 +94,10 @@ export default class ProductView {
    */
   displayMessages(message: string): void {
     const showMessage = createElement('div', 'show');
+    const bodyElement: HTMLElement | null = document.getElementById('page-body');
 
     showMessage.id = 'show-messages';
     showMessage.innerHTML = message;
-
-    const bodyElement: HTMLElement | null = document.getElementById('page-body');
-
-    if (!bodyElement) {
-      return;
-    }
 
     bodyElement.appendChild(showMessage);
     this.overlay.classList.replace('hide', 'display');
@@ -117,7 +105,7 @@ export default class ProductView {
     setTimeout(() => {
       bodyElement.removeChild(showMessage);
       this.overlay.classList.replace('display', 'hide');
-    }, 3000);
+    }, TIME_OUT);
   }
 
   /**
@@ -125,9 +113,8 @@ export default class ProductView {
    * @param inputs elements
    * @returns boolean
    */
-  disabledButton = () => {
+  disabledAddButton = (btn: HTMLButtonElement) => {
     let inputs = document.querySelectorAll('input, textarea');
-    const submitBtn = document.getElementById('submit') as HTMLButtonElement;
     let inputValidator: InputName = {
       productName: false,
       productPrice: false,
@@ -135,29 +122,64 @@ export default class ProductView {
       productUrl: false,
     };
 
-    submitBtn.disabled = true;
+    btn.disabled = true;
 
     inputs.forEach((input) => {
       input.addEventListener('input', (event) => {
         const target = event.target as HTMLInputElement;
-        let name = target.getAttribute('name');
-        if (target.value.length > 0) {
-          inputValidator[name] = true;
-        } else {
-          inputValidator[name] = false;
-        }
+        const name = target.getAttribute('name') as string;
 
-        let allTrue = Object.keys(inputValidator).every((item) => {
-          return inputValidator[item] === true;
-        });
+        inputValidator[name] = target.value.length > 0;
 
-        if (allTrue) {
-          submitBtn.disabled = false;
-        } else {
-          submitBtn.disabled = true;
-        }
+        let allTrue = Object.keys(inputValidator).every((item) => inputValidator[item]);
+
+        btn.disabled = !allTrue;
       });
     });
+  };
+
+  /**
+   * Disabled button submit when edit product item
+   * @param inputs elements
+   * @returns boolean
+   */
+  disabledEditButton = (btn: HTMLButtonElement) => {
+    let inputs = document.querySelectorAll('input, textarea');
+    let inputValidator: InputName = {
+      productName: false,
+      productPrice: false,
+      productDesc: false,
+      productUrl: false,
+    };
+
+    inputs.forEach((input) => {
+      input.addEventListener('input', (event) => {
+        const target = event.target as HTMLInputElement;
+
+        let allTrue = Object.keys(inputValidator).every(
+          (item) => (inputValidator[item] = target.value.length > 0)
+        );
+
+        btn.disabled = !allTrue;
+      });
+    });
+  };
+
+  /**
+   * Close modal by using Escape key
+   * @param idModal elements
+   */
+  closeModalByEscape = (idModal: HTMLElement) => {
+    document.onkeydown = (evt: KeyboardEvent) => {
+      evt = evt || window.event;
+      let isEscape: boolean = false;
+
+      'key' in evt && (isEscape = evt.key === 'Escape' || evt.key === 'Esc');
+      if (isEscape) {
+        idModal.remove();
+        this.overlay.classList.replace('display', 'hide');
+      }
+    };
   };
 
   /**
@@ -169,60 +191,46 @@ export default class ProductView {
     document.getElementById('open-modal')?.addEventListener('click', (e) => {
       e.preventDefault();
       this.openModal();
-      this.disabledButton();
-      const submitBtn = document.getElementById('submit');
-      const cancelBtn = document.getElementById('cancel');
+      const submitBtn = document.getElementById('submit') as HTMLButtonElement;
+      const cancelBtn = document.getElementById('cancel') as HTMLButtonElement;
+      const idModal = document.getElementById('product-modal') as HTMLElement;
+      this.disabledAddButton(submitBtn);
 
-      // Check is the button exist in DOM
-      if (submitBtn) {
-        submitBtn.addEventListener('click', (e: MouseEvent) => {
-          e.preventDefault();
-          const inputName = document.getElementById('productName') as HTMLInputElement;
-          const inputPrice = document.getElementById('productPrice') as HTMLInputElement;
-          const inputDesc = document.getElementById('productDesc') as HTMLTextAreaElement;
-          const inputUrl = document.getElementById('productUrl') as HTMLInputElement;
+      // Click submit button to add product
+      submitBtn.addEventListener('click', (e: MouseEvent) => {
+        e.preventDefault();
+        const inputName = document.getElementById('productName') as HTMLInputElement;
+        const inputPrice = document.getElementById('productPrice') as HTMLInputElement;
+        const inputDesc = document.getElementById('productDesc') as HTMLTextAreaElement;
+        const inputUrl = document.getElementById('productUrl') as HTMLInputElement;
 
-          const isValid = checkValidate();
+        const isValid = checkValidate(inputName, inputPrice, inputDesc, inputUrl, submitBtn);
 
-          // Check is valid form exist & price value is not negative number
-          if (isValid && Number(inputPrice.value) > 0) {
-            const newProduct: NewProduct = {
-              productName: inputName.value.trim(),
-              price: Number(inputPrice.value),
-              description: inputDesc.value.trim(),
-              productUrl: inputUrl.value.trim(),
-            };
+        // Check is valid form exist & price value is not negative number
+        if (isValid && Number(inputPrice.value) > 0) {
+          const newProduct: NewProduct = {
+            productName: inputName.value.trim(),
+            price: Number(inputPrice.value),
+            description: inputDesc.value.trim(),
+            productUrl: inputUrl.value.trim(),
+          };
 
-            handleNewProduct(newProduct);
-            document.getElementById('product-modal')?.remove();
-            this.overlay.classList.replace('display', 'hide');
-            this.productsList.classList.replace('hide', 'display');
-          }
-        });
-      }
-
-      // Check is the button exist in DOM
-      if (cancelBtn) {
-        cancelBtn.addEventListener('click', (e) => {
-          e.preventDefault();
+          handleNewProduct(newProduct);
           document.getElementById('product-modal')?.remove();
           this.overlay.classList.replace('display', 'hide');
-        });
-      }
+          this.productsList.classList.replace('hide', 'display');
+        }
+      });
+
+      // Click cancel button to cancel add product
+      cancelBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.getElementById('product-modal')?.remove();
+        this.overlay.classList.replace('display', 'hide');
+      });
 
       // Close modal by using Escape key
-      document.onkeydown = (evt: KeyboardEvent) => {
-        evt = evt || window.event;
-        let isEscape: boolean = false;
-
-        if ('key' in evt) {
-          isEscape = evt.key === 'Escape' || evt.key === 'Esc';
-        }
-        if (isEscape) {
-          document.getElementById('product-modal')?.remove();
-          this.overlay.classList.replace('display', 'hide');
-        }
-      };
+      this.closeModalByEscape(idModal);
     });
   };
 
@@ -237,37 +245,25 @@ export default class ProductView {
       const itemAction = target.getAttribute('data-action');
 
       if (itemAction === Action.VIEW) {
-        const id = (e.target as any).parentNode.parentNode.id;
+        const id = e.target.parentNode.parentNode.id;
         const product = await handleGetProductId(id);
+        const idModal = document.getElementById('product-detail-modal') as HTMLElement;
 
         if (product) {
           this.openDetailModal(product);
-          const closeBtn = document.getElementById('close');
+          const closeBtn = document.getElementById('close') as HTMLButtonElement;
 
           this.overlay.classList.replace('hide', 'display');
 
-          // Check is the button exist in DOM
-          if (closeBtn) {
-            closeBtn.addEventListener('click', (e) => {
-              e.preventDefault();
-              document.getElementById('product-detail-modal')?.remove();
-              this.overlay.classList.replace('display', 'hide');
-            });
-          }
+          // Click close button to close the modal
+          closeBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById('product-detail-modal')?.remove();
+            this.overlay.classList.replace('display', 'hide');
+          });
 
           // Close modal by using Escape key
-          document.onkeydown = (evt: KeyboardEvent) => {
-            evt = evt || window.event;
-            let isEscape: boolean = false;
-
-            if ('key' in evt) {
-              isEscape = evt.key === 'Escape' || evt.key === 'Esc';
-            }
-            if (isEscape) {
-              document.getElementById('product-detail-modal')?.remove();
-              this.overlay.classList.replace('display', 'hide');
-            }
-          };
+          this.closeModalByEscape(idModal);
         }
       }
     });
@@ -290,64 +286,52 @@ export default class ProductView {
 
       // Get product by id
       if (itemAction === Action.EDIT) {
-        const id = (e.target as any).parentNode.parentNode.id;
+        const id = e.target.parentNode.parentNode.id;
         const product = await handleGetProductId(id);
+        const idModal = document.getElementById('product-modal') as HTMLElement;
 
         if (product) {
           this.openModal(product);
-          const submitBtn = document.getElementById('submit');
-          const cancelBtn = document.getElementById('cancel');
+          const submitBtn = document.getElementById('submit') as HTMLButtonElement;
+          const cancelBtn = document.getElementById('cancel') as HTMLButtonElement;
 
-          // Check is the button exist in DOM
-          if (submitBtn) {
-            submitBtn.addEventListener('click', (e: MouseEvent) => {
-              e.preventDefault();
-              const inputName = document.getElementById('productName') as HTMLInputElement;
-              const inputPrice = document.getElementById('productPrice') as HTMLInputElement;
-              const inputDesc = document.getElementById('productDesc') as HTMLTextAreaElement;
-              const inputUrl = document.getElementById('productUrl') as HTMLInputElement;
+          this.disabledEditButton(submitBtn);
 
-              const isValid = checkValidate();
+          // Click submit button to edit product
+          submitBtn.addEventListener('click', (e: MouseEvent) => {
+            e.preventDefault();
+            const inputName = document.getElementById('productName') as HTMLInputElement;
+            const inputPrice = document.getElementById('productPrice') as HTMLInputElement;
+            const inputDesc = document.getElementById('productDesc') as HTMLTextAreaElement;
+            const inputUrl = document.getElementById('productUrl') as HTMLInputElement;
 
-              // Check is valid form exist & price value is not negative number
-              if (isValid && Number(inputPrice.value) > 0) {
-                const editProduct: EditProduct = {
-                  productName: inputName.value.trim(),
-                  price: Number(inputPrice.value),
-                  description: inputDesc.value.trim(),
-                  productUrl: inputUrl.value.trim(),
-                  updatedAt: new Date(),
-                };
+            const isValid = checkValidate(inputName, inputPrice, inputDesc, inputUrl, submitBtn);
 
-                handleEditProduct(id, editProduct);
-                document.getElementById('product-modal')?.remove();
-                this.overlay.classList.replace('display', 'hide');
-              }
-            });
+            // Check is valid form exist & price value is not negative number
+            if (isValid && Number(inputPrice.value) > 0) {
+              const editProduct: EditProduct = {
+                productName: inputName.value.trim(),
+                price: Number(inputPrice.value),
+                description: inputDesc.value.trim(),
+                productUrl: inputUrl.value.trim(),
+                updatedAt: new Date(),
+              };
 
-            // Check is the button exist in DOM
-            if (cancelBtn) {
-              cancelBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                document.getElementById('product-modal')?.remove();
-                this.overlay.classList.replace('display', 'hide');
-              });
+              handleEditProduct(id, editProduct);
+              document.getElementById('product-modal')?.remove();
+              this.overlay.classList.replace('display', 'hide');
             }
+          });
 
-            // Close modal by using Escape key
-            document.onkeydown = (evt: KeyboardEvent) => {
-              evt = evt || window.event;
-              let isEscape: boolean = false;
+          // Click cancel button to cancel edit product
+          cancelBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById('product-modal')?.remove();
+            this.overlay.classList.replace('display', 'hide');
+          });
 
-              if ('key' in evt) {
-                isEscape = evt.key === 'Escape' || evt.key === 'Esc';
-              }
-              if (isEscape) {
-                document.getElementById('product-modal')?.remove();
-                this.overlay.classList.replace('display', 'hide');
-              }
-            };
-          }
+          // Close modal by using Escape key
+          this.closeModalByEscape(idModal);
         }
       }
     });
@@ -363,6 +347,7 @@ export default class ProductView {
       e.preventDefault();
       const target = e.target as HTMLElement;
       const itemAction = target.getAttribute('data-action');
+      const idModal = document.getElementById('confirm-modal') as HTMLElement;
 
       const closeConfirmModal = () => {
         this.overlay.classList.replace('display', 'hide');
@@ -370,7 +355,7 @@ export default class ProductView {
       };
 
       if (itemAction === Action.DELETE) {
-        const id = (e.target as any).parentNode.parentNode.id;
+        const id = e.target.parentNode.parentNode.id;
         this.confirmModal.classList.replace('hide', 'display');
         this.overlay.classList.replace('hide', 'display');
 
@@ -385,18 +370,7 @@ export default class ProductView {
         });
 
         // Close modal by using Escape key
-        document.onkeydown = (evt: KeyboardEvent) => {
-          evt = evt || window.event;
-          let isEscape: boolean = false;
-
-          if ('key' in evt) {
-            isEscape = evt.key === 'Escape' || evt.key === 'Esc';
-          }
-          if (isEscape) {
-            this.overlay.classList.replace('display', 'hide');
-            this.confirmModal.classList.replace('display', 'hide');
-          }
-        };
+        this.closeModalByEscape(idModal);
       }
     });
   };

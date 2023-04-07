@@ -23,6 +23,9 @@ $bg-color-danger: $color-danger;
 $bg-color-success: $color-success;
 $bg-color-disabled: $color-tertiary;
 
+/* Background Size */
+$bg-size-primary: 16px;
+
 /* Border Colors */
 $border-main: $color-placeholder;
 
@@ -60,6 +63,8 @@ $text-none-content: 18px;
 /* Buttons */
 $text-button-normal: 14px;
 $text-button-action: 13px;
+$bg-color-btn-primary: #1f75cb;
+$bg-color-btn-secondary: #EFEFEF;
 
 /* Modal */
 $text-modal-message: $text-medium;

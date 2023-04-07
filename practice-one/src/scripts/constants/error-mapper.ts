@@ -1,5 +1,5 @@
-import { StatusCode } from './status.constant';
-import { ErrorMessage } from './message.constant';
+import { StatusCode } from './server-error-status';
+import { ErrorMessage } from './server-error-messages';
 import { StatusCodeMapper } from '../types/status-code';
 
 export const ErrorMapper: StatusCodeMapper = {

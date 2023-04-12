@@ -5,7 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
     "build": "parcel build src/index.html",
-    "start": "NODE_ENV=sample parcel src/index.html",
+    "start": "NODE_ENV=development parcel src/index.html",
     "prepare": "husky install"
   },
   "devDependencies": {

@@ -1,0 +1,32 @@
+@import 'abstracts/variables';
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .products {
+    &__head {
+      padding: 10px;
+    }
+
+    &__list {
+      .message {
+        font-size: $text-small;
+        height: 20px;
+      }
+    }
+
+    &__info {
+      display: flex;
+
+      .name {
+        width: 200px;
+      }
+
+      .desc {
+        width: 220px;
+      }
+    }
+
+    &-action {
+      display: inline-flex;
+    }
+  }
+}

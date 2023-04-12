@@ -27,6 +27,10 @@
   &__list {
     padding: 10px 0;
 
+    .name {
+      max-width: 250px;
+    }
+
     .desc {
       display: -webkit-box;
       -webkit-line-clamp: 2;
@@ -62,7 +66,7 @@
     padding: 10px 20px;
     width: calc(100% - 40px);
     display: grid;
-    grid-template-columns: 60px 300px 60px 300px auto auto auto;
+    grid-template-columns: 60px 250px 60px 300px auto auto 250px;
     grid-gap: 15px;
     border-bottom: 1px solid $border-main;
 
@@ -114,52 +118,4 @@
   border-radius: 8px;
   padding: 8px 40px;
   width: auto;
-}
-
-@media screen and (max-width: 767px) {
-  .products {
-    &__head {
-      padding: 10px;
-    }
-
-    &__list {
-      .message {
-        font-size: $text-small;
-        height: 20px;
-      }
-    }
-
-    &__info {
-      display: flex;
-      font-size: $text-small;
-      padding: 5px;
-      width: calc(100% - 10px);
-    }
-
-    &__img {
-      &--detail {
-        width: 100px;
-      }
-    }
-
-    &__title {
-      font-size: $text-medium;
-    }
-
-    &__price,
-    &__desc {
-      font-size: $text-small;
-    }
-
-    &__detail {
-      padding: 0 20px;
-    }
-  }
-
-  .search-input {
-    padding: 5px 30px;
-    border-radius: 5px;
-    background-size: 18px;
-    font-size: $text-small;
-  }
 }

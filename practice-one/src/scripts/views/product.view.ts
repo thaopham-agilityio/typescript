@@ -166,23 +166,6 @@ export default class ProductView {
   };
 
   /**
-   * Close modal by using Escape key
-   * @param idModal elements
-   */
-  closeModalByEscape = (idModal: HTMLElement) => {
-    document.onkeydown = (evt: KeyboardEvent) => {
-      evt = evt || window.event;
-      let isEscape: boolean = false;
-
-      'key' in evt && (isEscape = evt.key === 'Escape' || evt.key === 'Esc');
-      if (isEscape) {
-        idModal.remove();
-        this.overlay.classList.replace('display', 'hide');
-      }
-    };
-  };
-
-  /**
    * Add new product
    * @param {function} handleNewProduct
    */
@@ -193,7 +176,12 @@ export default class ProductView {
       this.openModal();
       const submitBtn = document.getElementById('submit') as HTMLButtonElement;
       const cancelBtn = document.getElementById('cancel') as HTMLButtonElement;
-      const idModal = document.getElementById('product-modal') as HTMLElement;
+
+      const closeModal = () => {
+        document.getElementById('product-modal')?.remove();
+        this.overlay.classList.replace('display', 'hide');
+      };
+
       this.disabledAddButton(submitBtn);
 
       // Click submit button to add product
@@ -225,12 +213,20 @@ export default class ProductView {
       // Click cancel button to cancel add product
       cancelBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        document.getElementById('product-modal')?.remove();
-        this.overlay.classList.replace('display', 'hide');
+        closeModal();
       });
 
+      // Close modal by click outside
+      this.overlay.addEventListener('click', closeModal);
+
       // Close modal by using Escape key
-      this.closeModalByEscape(idModal);
+      document.onkeydown = (evt: KeyboardEvent) => {
+        evt = evt || window.event;
+        let isEscape: boolean = false;
+
+        'key' in evt && (isEscape = evt.key === 'Escape' || evt.key === 'Esc');
+        isEscape && closeModal();
+      };
     });
   };
 
@@ -244,26 +240,36 @@ export default class ProductView {
       const target = e.target as HTMLElement;
       const itemAction = target.getAttribute('data-action');
 
+      const closeDetailModal = () => {
+        document.getElementById('product-detail-modal')?.remove();
+        this.overlay.classList.replace('display', 'hide');
+      };
+
       if (itemAction === Action.VIEW) {
         const id = e.target.parentNode.parentNode.id;
         const product = await handleGetProductId(id);
-        const idModal = document.getElementById('product-detail-modal') as HTMLElement;
 
         if (product) {
           this.openDetailModal(product);
           const closeBtn = document.getElementById('close') as HTMLButtonElement;
 
-          this.overlay.classList.replace('hide', 'display');
-
           // Click close button to close the modal
           closeBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            document.getElementById('product-detail-modal')?.remove();
-            this.overlay.classList.replace('display', 'hide');
+            closeDetailModal();
           });
 
+          // Close modal by click outside
+          this.overlay.addEventListener('click', closeDetailModal);
+
           // Close modal by using Escape key
-          this.closeModalByEscape(idModal);
+          document.onkeydown = (evt: KeyboardEvent) => {
+            evt = evt || window.event;
+            let isEscape: boolean = false;
+
+            'key' in evt && (isEscape = evt.key === 'Escape' || evt.key === 'Esc');
+            isEscape && closeDetailModal();
+          };
         }
       }
     });
@@ -284,11 +290,15 @@ export default class ProductView {
       const target = e.target as HTMLElement;
       const itemAction = target.getAttribute('data-action');
 
+      const closeModal = () => {
+        document.getElementById('product-modal')?.remove();
+        this.overlay.classList.replace('display', 'hide');
+      };
+
       // Get product by id
       if (itemAction === Action.EDIT) {
         const id = e.target.parentNode.parentNode.id;
         const product = await handleGetProductId(id);
-        const idModal = document.getElementById('product-modal') as HTMLElement;
 
         if (product) {
           this.openModal(product);
@@ -326,12 +336,20 @@ export default class ProductView {
           // Click cancel button to cancel edit product
           cancelBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            document.getElementById('product-modal')?.remove();
-            this.overlay.classList.replace('display', 'hide');
+            closeModal();
           });
 
+          // Close modal by click outside
+          this.overlay.addEventListener('click', closeModal);
+
           // Close modal by using Escape key
-          this.closeModalByEscape(idModal);
+          document.onkeydown = (evt: KeyboardEvent) => {
+            evt = evt || window.event;
+            let isEscape: boolean = false;
+
+            'key' in evt && (isEscape = evt.key === 'Escape' || evt.key === 'Esc');
+            isEscape && closeModal();
+          };
         }
       }
     });
@@ -347,7 +365,6 @@ export default class ProductView {
       e.preventDefault();
       const target = e.target as HTMLElement;
       const itemAction = target.getAttribute('data-action');
-      const idModal = document.getElementById('confirm-modal') as HTMLElement;
 
       const closeConfirmModal = () => {
         this.overlay.classList.replace('display', 'hide');
@@ -365,12 +382,19 @@ export default class ProductView {
           closeConfirmModal();
         });
 
-        document.getElementById('delete-cancel')?.addEventListener('click', () => {
-          closeConfirmModal();
-        });
+        document.getElementById('delete-cancel')?.addEventListener('click', closeConfirmModal);
+
+        // Close modal by click outside
+        this.overlay.addEventListener('click', closeConfirmModal);
 
         // Close modal by using Escape key
-        this.closeModalByEscape(idModal);
+        document.onkeydown = (evt: KeyboardEvent) => {
+          evt = evt || window.event;
+          let isEscape: boolean = false;
+
+          'key' in evt && (isEscape = evt.key === 'Escape' || evt.key === 'Esc');
+          isEscape && closeConfirmModal();
+        };
       }
     });
   };

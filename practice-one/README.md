@@ -17,7 +17,6 @@
 - Timeline
 
   - Estimate time: 12 days
-  - Actual time: TBD
 
 - Technical
   - HTML5/CSS3
@@ -37,7 +36,9 @@
 - eslint: v8.35.0
 - uuid: v9.0.0
 - axios: ^1.3.4,
-- husky": ^8.0.3
+- husky: ^8.0.3
+- @commitlint/cli: 17.5.1
+- @commitlint/config-conventional: 17.4.4
 
 ## Main app features
 
@@ -62,7 +63,7 @@
 - Using a json-server for databases.
 - Get familiar with DevTools (e.g Google Chrome DevTools) for debugging issues (breakpoint, log, etc..).
 - High performance web application.
-- Deploy to Vercel.
+- [Deploy to Vercel](https://typescript-one.vercel.app/)
 
 ## Getting started
 
@@ -84,16 +85,22 @@ cd typescript-training
 git checkout feature/practice-one
 ```
 
-- Step 4 Install packages
+- Step 4: Go to folder practice-one
+
+```
+cd practice/practice-one
+```
+
+- Step 5: Install packages
 
 ```
 npm install
 ```
 
-- Step 5: Run project
+- Step 6: Run project
 
 ```
 npm run start
 ```
 
-- Step 6: Open browser and access the link http://localhost:1234
+- Step 7: Open browser and access the link http://localhost:1234

@@ -13,13 +13,13 @@ export const productsListTemple = ({
 }: Product): string =>
   `<ul class="products__info" id="${id}">
     <li>
-      <img class="products__img--thumb" alt="Product of ${productName}" src="${productUrl}">
+      <img class="products__img--thumb" loading="lazy" alt="Product of ${productName}" src="${productUrl}">
     </li>
     <li class="name">${productName}</li>
     <li class="price">${price}$</li>
     <li class="desc">${description}</li>
-    <li>${formatDate(createdAt)}</li>
-    <li>${formatDate(updatedAt)}</li>
+    <li class="created">${formatDate(createdAt)}</li>
+    <li class="updated">${formatDate(updatedAt)}</li>
     <li class="products-action">
       <button class="btn btn-info btn-view-product" data-action="${Action.VIEW}">View</button>
       <button class="btn btn-success btn-edit-product" data-action="${Action.EDIT}">Edit</button>
@@ -44,7 +44,7 @@ export const productDetailModal = ({
     </header>
     <div class="modal-body">
       <form class="product-form detail">
-        <img class="products__img--detail" alt="Product" src="${productUrl}">
+        <img class="products__img--detail" loading="lazy" alt="Product" src="${productUrl}">
         <div class="products__detail">
           <h3 class="products__title">${productName}</h3>
           <p class="products__price">Price: ${price}$</p>

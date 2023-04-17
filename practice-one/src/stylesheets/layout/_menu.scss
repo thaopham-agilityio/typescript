@@ -8,22 +8,17 @@
   @extend %padding-0;
 
   > &__item {
-    overflow: hidden;
-    margin-right: 20px;
-    border-radius: 10px;
-
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-
-  &-link {
     @extend %block;
     @extend %text-uppercase;
     @extend %text-decoration-none;
+    font-size: $text-medium;
+    font-family: $default-family;
     background-color: $color-secondary;
     color: $color-primary;
     padding: 15px 38px;
+    overflow: hidden;
+    margin-right: 20px;
+    border-radius: 10px;
     width: auto;
 
     &.selected {
@@ -34,6 +29,11 @@
     &.board {
       background-color: $menu-board-bg-color;
       color: $color-secondary;
+      border-radius: 10px;
+    }
+
+    &:last-child {
+      margin-right: 0;
     }
   }
 
@@ -149,23 +149,23 @@
       display: flex;
       justify-content: center;
       margin: 0;
-      padding: 0.5em 0;
+      padding: 15px 0;
       width: calc(100% - 2px);
-      color: white;
-      background-color: $menu-bg-color;
+      color: $color-secondary;
+      background-color: $bg-color-secondary;
       border-radius: 0;
-
-      &:not(:last-child) {
-        border-bottom: 1px solid $menu-border;
-      }
-    }
-
-    &-link {
-      width: 100%;
 
       &.selected {
         background-color: $menu-bg-color;
         color: $color-primary;
+      }
+
+      &.board {
+        border-radius: 0;
+      }
+
+      &:not(:last-child) {
+        border-bottom: 1px solid $menu-border;
       }
     }
 
@@ -177,7 +177,8 @@
 
     &-toggle {
       ~ .menu {
-        li {
+        a,
+        button {
           height: 0;
           margin: 0;
           padding: 0;
@@ -188,13 +189,20 @@
 
       &:checked {
         ~ .menu {
-          li {
+          a,
+          button {
             border: 1px solid $menu-border;
-    height: auto;
-    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+            height: auto;
+            padding: 15px 0;
+            color: $color-default;
+            transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+
+            &.board {
+              color: $color-secondary;
+              border-radius: 0;
+            }
           }
         }
-
       }
     }
   }
@@ -202,13 +210,9 @@
 
 @media screen and (min-width: 1200px) and (max-width: 1399px) {
   .menu {
-    > li {
+    > &__item {
       margin-right: 15px;
-    }
-
-    &-link {
       padding: 10px 30px;
-      width: auto;
     }
   }
 }

@@ -47,36 +47,17 @@
           <div class='menu-button'></div>
         </label>
         <!-- End Hamburger menu -->
-
-        <ul class="menu">
-          <li class="menu__item">
-            <a href="javascript:void(0)" class="menu-link selected">Home</a>
-          </li>
-          <li class="menu__item">
-            <a href="javascript:void(0)" class="menu-link">New Releases</a>
-          </li>
-          <li class="menu__item">
-            <a href="javascript:void(0)" class="menu-link">Men</a>
-          </li>
-          <li class="menu__item">
-            <a href="javascript:void(0)" class="menu-link">Women</a>
-          </li>
-          <li class="menu__item">
-            <a href="javascript:void(0)" class="menu-link">Kids</a>
-          </li>
-          <li class="menu__item">
-            <a href="javascript:void(0)" class="menu-link">Customize</a>
-          </li>
-          <li class="menu__item">
-            <a href="javascript:void(0)" class="menu-link">Sale</a>
-          </li>
-          <li class="menu__item">
-            <a href="javascript:void(0)" class="menu-link">Search</a>
-          </li>
-          <li class="menu__item">
-            <a href="./board.html" class="menu-link board">Board</a>
-          </li>
-        </ul>
+        <div class="menu">
+          <button class="menu__item selected">Home</button>
+          <button class="menu__item">New Releases</button>
+          <button class="menu__item">Men</button>
+          <button class="menu__item">Women</button>
+          <button class="menu__item">Kids</button>
+          <button class="menu__item">Customize</button>
+          <button class="menu__item">Sale</button>
+          <button class="menu__item">Search</button>
+          <a href="./board.html" class="menu__item board">Board</a>
+        </div>
       </nav>
       <!-- End header menu -->
     <!-- End of Header -->
@@ -91,11 +72,11 @@
 
         <!-- Ad Banner 1 -->
         <figure class="discover__banner-1">
-          <img loading="lazy" src="./assets/images/discover.webp" alt="Discover Product">
+          <img class="discover__product" width="208" height="84" loading="lazy" src="./assets/images/discover.webp" alt="Discover Product">
           <figcaption>
             The new pegasus 37
           </figcaption>
-          <img loading="lazy" src="./assets/images/discover-colors.webp" alt="Discover Colors">
+          <img class="discover__colors" width="260" height="15" loading="lazy" src="./assets/images/discover-colors.webp" alt="Discover Colors">
         </figure>
         <!-- End Ad Banner 1 -->
 
@@ -109,14 +90,10 @@
               Featuring the stories and sneakers that made the Jumpman a global phenomenon.
             </div>
           </figcaption>
-          <ul class="container-ad-links item">
-            <li>
-              <a href="javascript:void(0)" class="discover__banner--link">Shop</a>
-            </li>
-            <li>
-              <a href="javascript:void(0)" class="discover__banner--link">Explore</a>
-            </li>
-          </ul>
+          <div class="container-ad-links item">
+            <button class="discover__banner--link">Shop</button>
+            <button class="discover__banner--link">Explore</button>
+          </div>
         </figure>
         <!-- End Ad Banner 2 -->
       </section>

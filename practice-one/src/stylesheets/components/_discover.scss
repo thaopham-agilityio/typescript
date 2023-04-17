@@ -32,6 +32,7 @@
 
     &-2 {
       @extend %flex;
+      @extend %justify-space-between;
       color: $color-banner;
       font-size: $text-banner;
       font-family: $default-family;
@@ -42,7 +43,8 @@
       grid-column: 2 / 3;
 
       .item {
-        flex: 1;
+        @extend %flex;
+        @extend %flex-column;
       }
 
       .container-ad-text {
@@ -61,6 +63,7 @@
       @extend %text-decoration-none;
       @extend %text-uppercase;
       @extend %inline-block;
+      @extend %cursor-pointer;
       color: $color-button;
       font-size: $text-button;
       font-family: $default-family;
@@ -79,6 +82,22 @@
     &--para {
       font-size: $text-banner-para;
       line-height: 17px;
+    }
+
+    &__product {
+      @extend %margin-center;
+      aspect-ratio: 52 / 21;
+      object-fit: cover;
+      width: 100%;
+      max-width: 208px;
+    }
+
+    &__colors {
+      @extend %margin-center;
+      aspect-ratio: 52 / 3;
+      object-fit: cover;
+      width: 100%;
+      max-width: 260px;
     }
   }
 }

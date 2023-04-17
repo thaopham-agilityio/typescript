@@ -36,6 +36,15 @@ $font-secondary: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 $default-family: $font-primary;
 $secondary-family: $font-secondary;
 
+/* Menu */
+$menu-color: $color-secondary;
+$menu-bg-color: #e6e6e6;
+$menu-board-bg-color: #1f75cb;
+$menu-text: 24px;
+$menu-button-width: 30px;
+$menu-button-height: 4px;
+$menu-border: $color-tertiary;
+
 /* Font-Size */
 $text-small: 12px;
 $text-medium: 16px;
@@ -54,12 +63,37 @@ $font-family-body: $default-family;
 
 /* Header */
 $text-slogan: $text-large;
+$text-slogan-medium: 24px;
 $text-profile: 18px;
 $line-height-profile: 22px;
 
 /* Products */
 $text-content-normal: 14px;
 $text-none-content: 18px;
+
+/* Discover */
+$text-banner-title: 35px;
+$text-banner-title-small: 25px;
+$color-banner: $color-secondary;
+$text-banner: 27px;
+$text-banner-small: 20px;
+$text-banner-para: 17px;
+$text-banner-para-small: 14px;
+$color-button: $color-primary;
+$text-button: $text-medium;
+$button-bg-color: #f6f6f6;
+
+/* Featured Footwear */
+$text-footwear-title: 27px;
+$text-footwear-title-small: 20px;
+$color-footwear: $color-secondary;
+$text-footwear: $text-medium;
+$footwear-bg-color: #E0E0E0;
+$footwear-para-bg-color: $bg-color-primary;
+
+/* Daily Source */
+$text-daily-source-title: 27px;
+$text-daily-source-title-small: 20px;
 
 /* Buttons */
 $text-button-small: 10px;

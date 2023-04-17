@@ -6,9 +6,13 @@
 @import 'base/common';
 
 @import 'layout/header';
+@import 'layout/menu';
 
 @import 'components/loading';
 @import 'components/messages';
+@import 'components/discover';
+@import 'components/footwear';
+@import 'components/_daily-source';
 @import 'components/products';
 @import 'components/button';
 @import 'components/modal';

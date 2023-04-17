@@ -1,0 +1,71 @@
+// ======================================================
+// Component :: Featured Footwear
+// ======================================================
+
+.footwear {
+  &__title {
+    @extend %text-uppercase;
+    font-family: $default-family;
+    font-size: $text-footwear-title;
+    line-height: 34px;
+    grid-column: 1 / 6;
+    margin: 25px 0 15px;
+  }
+
+  &__product {
+    @extend %grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+
+    &-1 {
+      grid-column: 1 / 2;
+    }
+
+    &-2 {
+      grid-column: 2 / 3;
+    }
+
+    &-3 {
+      grid-column: 3 / 4;
+    }
+
+    &-4 {
+      grid-column: 4 / 5;
+    }
+
+    &-5 {
+      grid-column: 5 / 6;
+    }
+
+    &-1,
+    &-2,
+    &-3,
+    &-4,
+    &-5 {
+      @extend %flex;
+      @extend %flex-column;
+      background-color: $footwear-bg-color;
+      border-radius: 10px;
+      box-shadow: 0px 2px 12px rgba(23, 29, 41, 0.12);
+    }
+  }
+
+  &__img {
+    @extend %margin-center;
+    aspect-ratio: 4 / 5;
+    object-fit: contain;
+    width: 100%;
+    max-width: 315px;
+  }
+
+  &__para {
+    @extend %text-center;
+    @extend %text-uppercase;
+    color: $color-footwear;
+    font-size: $text-footwear;
+    font-family: $default-family;
+    background-color: $footwear-para-bg-color;
+    border-radius: 0px 0px 10px 10px;
+    padding: 15px;
+  }
+}

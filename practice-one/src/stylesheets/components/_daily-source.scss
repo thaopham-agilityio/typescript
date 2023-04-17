@@ -1,0 +1,45 @@
+// ======================================================
+// Component :: Your Daily Source For Sport
+// ======================================================
+
+.daily-source {
+  &__title {
+    @extend %text-uppercase;
+    font-family: $default-family;
+    font-size: $text-daily-source-title;
+    line-height: 34px;
+    grid-column: 1 / 6;
+    margin: 25px 0 15px;
+  }
+
+  &__product {
+    @extend %grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+
+    &-1 {
+      grid-column: 1 / 2;
+    }
+
+    &-2 {
+      grid-column: 2 / 3;
+    }
+
+    &-1,
+    &-2 {
+      @extend %flex;
+      @extend %flex-column;
+      background-color: $bg-color-secondary;
+      border-radius: 10px 10px 0 0;
+      box-shadow: 0px 2px 12px rgba(23, 29, 41, 0.12);
+    }
+  }
+
+  &__img {
+    @extend %margin-center;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    width: 100%;
+    max-width: 659px;
+  }
+}

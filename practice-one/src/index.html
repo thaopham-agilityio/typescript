@@ -3,16 +3,16 @@
 <html lang="en">
 
   <head>
-    <title>Javascript training</title>
+    <title>Typescript - Javascript training</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Pratice html and css">
+    <meta name="description" content="Pratice typescript and javascript">
     <meta name="author" content="Thao Pham">
     <link rel="apple-touch-icon" href="./assets/images/logo-nike.svg">
-    <link rel="preconnect" href="https://640aadf281d8a32198cddbcc.mockapi.io" />
     <link href="./stylesheets/app.scss" rel="stylesheet">
     <link href="./stylesheets/app-mobile.scss" rel="stylesheet" media="screen and (max-width: 767px)">
     <link href="./stylesheets/app-tablet.scss" rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 1024px)">
+
   </head>
 
   <body id="page-body">
@@ -38,56 +38,172 @@
         </section>
         <!-- End Header profile -->
       </section>
+
+      <!-- Header menu -->
+      <nav class="header__nav">
+        <!-- Hamburger menu -->
+        <input id="menu-toggle" class="menu-toggle" type="checkbox" />
+        <label class='menu-button-container' for="menu-toggle">
+          <div class='menu-button'></div>
+        </label>
+        <!-- End Hamburger menu -->
+
+        <ul class="menu">
+          <li class="menu__item">
+            <a href="javascript:void(0)" class="menu-link selected">Home</a>
+          </li>
+          <li class="menu__item">
+            <a href="javascript:void(0)" class="menu-link">New Releases</a>
+          </li>
+          <li class="menu__item">
+            <a href="javascript:void(0)" class="menu-link">Men</a>
+          </li>
+          <li class="menu__item">
+            <a href="javascript:void(0)" class="menu-link">Women</a>
+          </li>
+          <li class="menu__item">
+            <a href="javascript:void(0)" class="menu-link">Kids</a>
+          </li>
+          <li class="menu__item">
+            <a href="javascript:void(0)" class="menu-link">Customize</a>
+          </li>
+          <li class="menu__item">
+            <a href="javascript:void(0)" class="menu-link">Sale</a>
+          </li>
+          <li class="menu__item">
+            <a href="javascript:void(0)" class="menu-link">Search</a>
+          </li>
+          <li class="menu__item">
+            <a href="./board.html" class="menu-link board">Board</a>
+          </li>
+        </ul>
+      </nav>
+      <!-- End header menu -->
     <!-- End of Header -->
     </header>
     <!-- Main -->
-    <main class="main">
-      <section class="products">
-        <!-- Head products -->
-        <section class="products__head">
-          <!--Add button-->
-          <button class="btn btn-primary btn-add-product" id="open-modal">Add new</button>
+    <main class="landing">
+      <!-- Discover -->
+      <section class="discover">
+        <!-- Title Banner 1 -->
+        <h2 class="discover__title">Discover</h2>
+        <!-- endTitle Banner 1 -->
 
-          <!--Search bar-->
-          <div class="search-bar">
-            <label for="search-input" aria-label="Search"></label>
-            <input type="text" class="search-input" id="search-input" />
-          </div>
-        </section>
-        <!-- End of Head products -->
+        <!-- Ad Banner 1 -->
+        <figure class="discover__banner-1">
+          <img loading="lazy" src="./assets/images/discover.webp" alt="Discover Product">
+          <figcaption>
+            The new pegasus 37
+          </figcaption>
+          <img loading="lazy" src="./assets/images/discover-colors.webp" alt="Discover Colors">
+        </figure>
+        <!-- End Ad Banner 1 -->
 
-        <!-- Contents products -->
-        <section class="products__contents">
-          <!-- List products -->
-          <div class="products__list display" id="list-products"></div>
-          <div class="loading-indicator">
-            <div class="loading"></div>
-          </div>
-          <!-- End of List products -->
-        </section>
-        <!-- End of Contents products -->
+        <!-- Ad Banner 2 -->
+        <figure class="discover__banner-2">
+          <figcaption class="container-ad-text item">
+            <div class="discover__banner--title">
+              The beast of Jordan
+            </div>
+            <div class="discover__banner--para">
+              Featuring the stories and sneakers that made the Jumpman a global phenomenon.
+            </div>
+          </figcaption>
+          <ul class="container-ad-links item">
+            <li>
+              <a href="javascript:void(0)" class="discover__banner--link">Shop</a>
+            </li>
+            <li>
+              <a href="javascript:void(0)" class="discover__banner--link">Explore</a>
+            </li>
+          </ul>
+        </figure>
+        <!-- End Ad Banner 2 -->
       </section>
-      <div class="modal-overlay hide"></div>
+      <!-- End Discover -->
+
+      <!-- Featured Footwear -->
+      <section class="footwear">
+        <!-- Title Featured Footwear -->
+        <h3 class="footwear__title">Featured Footwear</h3>
+        <!-- End Title Featured Footwear -->
+
+        <!-- Featured Footwear Products -->
+        <article class="footwear__product">
+          <!-- Featured Footwear Product 1 -->
+          <figure class="footwear__product-1">
+            <img class="footwear__img" loading="lazy" src="./assets/images/footwear-1.webp" alt="Featured Footwear Product 1">
+            <figcaption class="footwear__para">
+              Nike air max 90
+            </figcaption>
+          </figure>
+          <!-- End Featured Footwear Product 1 -->
+
+          <!-- Featured Footwear Product 2 -->
+          <figure class="footwear__product-2">
+            <img class="footwear__img" loading="lazy" src="./assets/images/footwear-2.webp" alt="Featured Footwear Product 2">
+            <figcaption class="footwear__para">
+              Nike blazer
+            </figcaption>
+          </figure>
+          <!-- End Featured Footwear Product 2 -->
+
+          <!-- Featured Footwear Product 3 -->
+          <figure class="footwear__product-3">
+            <img class="footwear__img" loading="lazy" src="./assets/images/footwear-3.webp" alt="Featured Footwear Product 3">
+            <figcaption class="footwear__para">
+              Nike air vapormax
+            </figcaption>
+          </figure>
+          <!-- End Featured Footwear Product 3 -->
+
+          <!-- Featured Footwear Product 4 -->
+          <figure class="footwear__product-4">
+            <img class="footwear__img" loading="lazy" src="./assets/images/footwear-4.webp" alt="Featured Footwear Product 4">
+            <figcaption class="footwear__para">
+              Nike react infinity
+            </figcaption>
+          </figure>
+          <!-- End Featured Footwear Product 4 -->
+
+          <!-- Featured Footwear Product 5 -->
+          <figure class="footwear__product-5">
+            <img class="footwear__img" loading="lazy" src="./assets/images/footwear-5.webp" alt="Featured Footwear Product 5">
+            <figcaption class="footwear__para">
+              Nike air force
+            </figcaption>
+          </figure>
+          <!-- End Featured Footwear Product 5 -->
+        </article>
+        <!-- End Featured Footwear Products -->
+      </section>
+      <!-- End Featured Footwear -->
+
+      <!--  Your Daily Source For Sport -->
+      <section class="daily-source">
+        <!-- Title Daily Source -->
+        <h3 class="daily-source__title">Your daily source for sport</h3>
+        <!-- End Title Daily Source -->
+
+        <!-- Daily Source Products -->
+        <article class="daily-source__product">
+          <!-- Daily Source Product 1 -->
+          <figure class="daily-source__product-1">
+            <img class="daily-source__img" loading="lazy" src="./assets/images/daily-source-1.webp" alt="Daily Source Product 1">
+          </figure>
+          <!-- End Daily Source Product 1 -->
+
+          <!-- Daily Source Product 2 -->
+          <figure class="daily-source__product-2">
+            <img class="daily-source__img" loading="lazy" src="./assets/images/daily-source-2.webp" alt="Daily Source Product 2">
+          </figure>
+          <!-- End Daily Source Product 2 -->
+        </article>
+        <!-- End Daily Source Products -->
+      </section>
+      <!-- End Your Daily Source For Sport -->
     </main>
     <!-- End of Main Section -->
-
-    <!-- Confirm Modal -->
-    <div class="confirm-modal hide" id="confirm-modal">
-      <div class="modal-container">
-        <header class="modal-header">
-          <h2 class="modal-title">Delete product</h2>
-        </header>
-        <div class="modal-body">
-          <p class="modal-message">Are you sure to delete this product?</p>
-        </div>
-        <footer class="modal-footer">
-          <button class="btn btn-secondary" id="delete-cancel">Cancel</button>
-          <button class="btn btn-danger btn-delete-product" id="delete">Delete</button>
-        </footer>
-      </div>
-    </div>
-
-    <script defer type="module" src="./scripts/app.ts"></script>
   </body>
 
 </html>

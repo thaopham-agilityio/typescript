@@ -1,0 +1,84 @@
+// ======================================================
+// Component :: Discover
+// ======================================================
+
+.discover {
+  @extend %grid;
+  grid-template: auto 1fr / 1fr 1fr;
+  grid-gap: 20px;
+
+  &__title {
+    @extend %text-uppercase;
+    font-family: $default-family;
+    font-size: $text-banner-title;
+    line-height: 44px;
+    grid-column: 1 / 3;
+  }
+
+  &__banner {
+    &-1 {
+      @extend %text-center;
+      @extend %text-uppercase;
+      @extend %cursor-pointer;
+      color: $color-banner;
+      font-size: $text-banner;
+      font-family: $default-family;
+      line-height: 34px;
+      border-radius: 10px;
+      padding: 16px 16px 8px;
+      background: linear-gradient(225deg, #298889 0%, #105660 100%);
+      grid-column: 1 / 2;
+    }
+
+    &-2 {
+      @extend %flex;
+      color: $color-banner;
+      font-size: $text-banner;
+      font-family: $default-family;
+      line-height: 34px;
+      border-radius: 10px;
+      background: url("../assets/images/discover-bg.webp") no-repeat;
+      background-size: cover;
+      grid-column: 2 / 3;
+
+      .item {
+        flex: 1;
+      }
+
+      .container-ad-text {
+        padding: 28px 0 0 25px;
+        max-width: 230px;
+      }
+
+      .container-ad-links {
+        @extend %text-right;
+        @extend %list-style-type-none;
+        padding: 28px 30px 0 0;
+      }
+    }
+
+    &--link {
+      @extend %text-decoration-none;
+      @extend %text-uppercase;
+      @extend %inline-block;
+      color: $color-button;
+      font-size: $text-button;
+      font-family: $default-family;
+      background-color: $button-bg-color;
+      line-height: 20px;
+      border-radius: 10px;
+      padding: 15px 42px;
+      margin: 5px 0 20px;
+    }
+
+    &--title {
+      @extend %text-uppercase;
+      margin-bottom: 5px;
+    }
+
+    &--para {
+      font-size: $text-banner-para;
+      line-height: 17px;
+    }
+  }
+}

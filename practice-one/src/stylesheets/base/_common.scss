@@ -21,11 +21,26 @@ body {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+img {
+  max-width: 100%;
+}
+
 .main {
 	@extend %relative;
   @extend %margin-center;
   max-width: $page-max-width;
   font-family: $secondary-family;
+}
+
+.landing {
+	@extend %relative;
+  @extend %margin-center;
+  padding: 25px 50px;
+  max-width: 1340px;
+
+  @media screen and (max-width: 1440px) {
+    padding: 25px;
+  }
 }
 
 :focus {

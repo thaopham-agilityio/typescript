@@ -6,16 +6,17 @@
   &__page {
     @extend %relative;
     @extend %margin-center;
-    container: header-content / inline-size;
-    padding: 25px 50px;
+    @extend %z-index-1;
+    padding: 54px 25px 34px;
     background-color: $bg-color-primary;
-    max-width: 1340px;
+    max-width: 1390px;
   }
 
   &__wrapper {
     @extend %flex;
     @extend %justify-space-between;
     @extend %item-center;
+    padding: 0 25px;
 
     &-slogan,
     &-profile {
@@ -46,36 +47,11 @@
       aspect-ratio: 1 / 1;
     }
   }
-}
 
-@container header-content (max-width: 767px) {
-  .header {
-    &__logo {
-      width: 50%;
-    }
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .header {
-    &__page {
-      padding: 10px 20px;
-    }
-
-    &__wrapper {
-      &-avatar {
-        width: 30px;
-        aspect-ratio: 1 / 1;
-      }
-
-      &-slogan {
-        font-size: $text-medium;
-      }
-
-      &-name {
-        font-size: $text-small;
-        line-height: 1.2;
-      }
-    }
+  &__nav {
+    @extend %text-left;
+    @extend %flex;
+    @extend %justify-center;
+    margin-top: 48px;
   }
 }

@@ -17,37 +17,39 @@
     @extend %justify-space-between;
     @extend %item-center;
     padding: 0 25px;
-
-    &-slogan,
-    &-profile {
-      @extend %text-uppercase;
-      color: $color-secondary;
-    }
-
-    &-slogan {
-      font-size: $text-slogan;
-      line-height: 38px;
-    }
-
-    &-profile {
-      @extend %flex;
-      @extend %item-center;
-      font-size: $text-profile;
-      line-height: 22px;
-    }
-
-    &-name {
-      max-width: 100px;
-      text-align: right;
-      margin-right: 20px;
-    }
-
-    &-avatar {
-      width: 60px;
-      aspect-ratio: 1 / 1;
-    }
   }
 
+  &__slogan,
+  &__profile {
+    @extend %text-uppercase;
+    color: $color-secondary;
+  }
+
+  &__slogan {
+    font-size: $text-slogan;
+    line-height: 38px;
+  }
+
+  &__profile {
+    @extend %flex;
+    @extend %item-center;
+    font-size: $text-profile;
+    line-height: 22px;
+  }
+
+  &__name {
+    max-width: 100px;
+    text-align: right;
+    margin-right: 20px;
+  }
+
+  &__avatar {
+    width: 60px;
+    aspect-ratio: 1 / 1;
+  }
+}
+
+.main {
   &__nav {
     @extend %text-left;
     @extend %flex;

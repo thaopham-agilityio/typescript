@@ -13,7 +13,7 @@ export const productsListTemple = ({
 }: Product): string =>
   `<ul class="products__info" id="${id}">
     <li>
-      <img class="products__img--thumb" loading="lazy" alt="Product of ${productName}" src="${productUrl}">
+      <img width="60" height="75" class="products__img--thumb" loading="lazy" alt="Product of ${productName}" src="${productUrl}">
     </li>
     <li class="name">${productName}</li>
     <li class="price">${price}$</li>

@@ -29,6 +29,28 @@ export const productsListTemple = ({
     </li>
   </ul>`;
 
+export const footwearsListTemple = ({ id, productName, productUrl }: Product): string =>
+  `<li class="footwear__product-item" id=${id}>
+    <div class="footwear__product-link">
+      <img width="252" height="315" class="footwear__img" loading="lazy" src="${productUrl}" alt="Featured Footwear Product of ${productName}" data-action="${Action.LINK}">
+      <p class="footwear__para" data-action="${Action.LINK}">${productName}</p>
+    </div>
+  </li>`;
+
+export const productDetailTemple = ({
+  productName,
+  price,
+  description,
+  productUrl,
+}: Product): string => {
+  return `<img class="footwear__detail-img" loading="lazy" alt="Product" src="${productUrl}">
+          <div class="footwear__detail-content">
+            <h3 class="footwear__detail-title">${productName}</h3>
+            <p class="footwear__detail-price">Price: ${price}$</p>
+            <p class="footwear__detail-desc">${description}</p>
+          </div>`;
+};
+
 export const productDetailModal = ({
   productName,
   price,

@@ -4,14 +4,17 @@
   // Featured Footwear
   .footwear {
     &__product {
-      grid-template: 1fr 1fr / 1fr 1fr 1fr;
+      flex-wrap: wrap;
+      justify-content: space-between;
 
-      &-4 {
-        grid-column: 1 / 2;
+      &-item {
+        flex-basis: calc(50% - 10px);
       }
+    }
 
-      &-5 {
-        grid-column: 2 / 3;
+    &__detail {
+      &-img {
+        max-width: 300px;
       }
     }
   }

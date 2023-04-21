@@ -2,6 +2,7 @@ export enum Action {
   VIEW = 'View',
   EDIT = 'Edit',
   DELETE = 'Delete',
+  LINK = 'Link',
 }
 
 export interface Product {

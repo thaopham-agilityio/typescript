@@ -107,7 +107,7 @@
     &--detail {
       aspect-ratio: 4 / 5;
       object-fit: contain;
-      width: 300px;
+      max-width: 300px;
     }
   }
 }

@@ -4,28 +4,37 @@
   // Discover
   .discover {
     &__banner {
-      &-1,
-      &-2 {
+      &-carousel,
+      &-sneakers {
         grid-column: 1 / 3;
+        font-size: $text-banner-para;
+        line-height: 24px;
       }
     }
 
     &__banner {
-      &-2 {
+      &-sneakers {
         background-size: cover;
       }
     }
   }
 
+  // Carousel
+  .slide {
+    position: relative;
+  }
+
   // Featured Footwear
   .footwear {
     &__product {
-      &-1,
-      &-2,
-      &-3,
-      &-4,
-      &-5 {
-        grid-column: 1 / 6;
+      flex-direction: column;
+    }
+
+    &__detail {
+      display: block;
+
+      &-content {
+        margin-left: 0;
       }
     }
   }
@@ -33,10 +42,7 @@
   // Daily Source
   .daily-source {
     &__product {
-      &-1,
-      &-2 {
-        grid-column: 1 / 3;
-      }
+      flex-direction: column;
     }
   }
 
@@ -51,6 +57,17 @@
         font-size: $text-small;
         height: 20px;
       }
+    }
+
+    &__img {
+      &--detail {
+        width: calc(100% - 40px);
+        margin: 0 auto 40px;
+      }
+    }
+
+    &__detail {
+      padding: 0 20px;
     }
 
     &__info {
@@ -96,6 +113,8 @@
   // Modal
   .modal {
     position: absolute;
+    top: 0;
+    transform: translate(-50%, 0);
 
     &-container {
       max-width: 100%;
@@ -106,9 +125,10 @@
   .product {
     &-form {
       min-width: 320px;
-      margin: 0 20px;
+      margin: 0 auto;
 
       &.detail {
+        flex-direction: column;
         align-items: flex-start;
         margin-left: 0;
       }
@@ -153,7 +173,7 @@
 
       &-2 {
         .container-ad-text {
-          padding: 20px 0 15px 15px;
+          padding: 20px 15px 15px;
         }
 
         .container-ad-links {
@@ -192,7 +212,7 @@
   .products {
     &__img {
       &--detail {
-        width: 100px;
+        margin: 0 auto 20px;
       }
     }
 

@@ -9,10 +9,12 @@
     <meta name="description" content="Pratice typescript and javascript">
     <meta name="author" content="Thao Pham">
     <link rel="apple-touch-icon" href="./assets/images/logo-nike.svg">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link href="./stylesheets/app.scss" rel="stylesheet">
     <link href="./stylesheets/app-mobile.scss" rel="stylesheet" media="screen and (max-width: 767px)">
     <link href="./stylesheets/app-tablet.scss" rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 1024px)">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   </head>
 
   <body id="page-body">
@@ -61,28 +63,73 @@
         <!-- End Hamburger menu -->
       </nav>
       <!-- End header menu -->
-    <!-- End of Header -->
     </header>
+    <!-- End of Header -->
+
     <!-- Main -->
     <main class="landing">
       <!-- Discover -->
-      <section class="discover">
+      <section class="discover display">
         <!-- Title Banner 1 -->
         <h2 class="discover__title">Discover</h2>
         <!-- endTitle Banner 1 -->
 
-        <!-- Ad Banner 1 -->
-        <figure class="discover__banner-1">
-          <img class="discover__product" width="208" height="84" loading="lazy" src="./assets/images/discover.webp" alt="Discover Product">
-          <figcaption>
-            The new pegasus 37
-          </figcaption>
-          <img class="discover__colors" width="260" height="15" loading="lazy" src="./assets/images/discover-colors.webp" alt="Discover Colors">
-        </figure>
+        <!-- Ad Banner carousel -->
+        <div class="discover__banner-carousel container">
+          <div id="carousel-simple" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+              <li class="dots active" data-target="#carousel-simple" data-slide-to="0"></li>
+              <li class="dots" data-target="#carousel-simple" data-slide-to="1"></li>
+              <li class="dots" data-target="#carousel-simple" data-slide-to="2"></li>
+              <li class="dots" data-target="#carousel-simple" data-slide-to="3"></li>
+              <li class="dots" data-target="#carousel-simple" data-slide-to="4"></li>
+              <li class="dots" data-target="#carousel-simple" data-slide-to="5"></li>
+              <li class="dots" data-target="#carousel-simple" data-slide-to="6"></li>
+              <li class="dots" data-target="#carousel-simple" data-slide-to="7"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+              <div class="item active">
+                <img class="discover__product" width="208" height="84" loading="lazy" src="https://i.ibb.co/8M1vLVp/discover.webp" alt="The new pegasus 37" />
+                <p class="discover__name">The new pegasus 37</p>
+              </div>
+              <div class="item">
+                <img class="discover__product" width="208" height="84" loading="lazy" src="https://i.ibb.co/R9xVFrR/discover-2.webp" alt="Nike Air Zoom Pegasus 35" />
+                <p class="discover__name">Nike Air Zoom Pegasus 35</p>
+              </div>
+              <div class="item">
+                <img class="discover__product" width="208" height="84" loading="lazy" src="https://i.ibb.co/DwLJjhb/discover-3.webp" alt="Nike Free Sports shoes" />
+                <p class="discover__name">Nike Free Sports shoes</p>
+              </div>
+              <div class="item">
+                <img class="discover__product" width="208" height="84" loading="lazy" src="https://i.ibb.co/XZVDn2G/discover-4.webp" alt="Nike Air Zoom Pegasus 34" />
+                <p class="discover__name">Nike Air Zoom Pegasus 34</p>
+              </div>
+              <div class="item">
+                <img class="discover__product" width="208" height="84" loading="lazy" src="https://i.ibb.co/F7jKZG6/discover-5.webp" alt="Nike Air Zoom Pegasus 35" />
+                <p class="discover__name">Nike Air Zoom Pegasus 35</p>
+              </div>
+              <div class="item">
+                <img class="discover__product" width="208" height="84" loading="lazy" src="https://i.ibb.co/s6JwbD2/discover-6.webp" alt="Sports shoes Nike 35" />
+                <p class="discover__name">Sports shoes Nike 35</p>
+              </div>
+              <div class="item">
+                <img class="discover__product" width="208" height="84" loading="lazy" src="https://i.ibb.co/71Cc5Rg/discover-7.webp" alt="Nike Air Zoom Pegasus 35" />
+                <p class="discover__name">Nike Air Zoom Pegasus 35</p>
+              </div>
+              <div class="item">
+                <img class="discover__product" width="208" height="84" loading="lazy" src="https://i.ibb.co/gdCZkBG/discover-8.webp" alt="Sneakers Nike Air Max" />
+                <p class="discover__name">Sneakers Nike Air Max</p>
+              </div>
+            </div>
+          </div>
+        </div>
         <!-- End Ad Banner 1 -->
 
-        <!-- Ad Banner 2 -->
-        <figure class="discover__banner-2">
+        <!-- Ad Banner sneakers -->
+        <figure class="discover__banner-sneakers">
           <figcaption class="container-ad-text item">
             <div class="discover__banner--title">
               The beast of Jordan
@@ -103,85 +150,54 @@
       <!-- Featured Footwear -->
       <section class="footwear">
         <!-- Title Featured Footwear -->
-        <h3 class="footwear__title">Featured Footwear</h3>
+        <h3 class="footwear__title display">Featured Footwear</h3>
         <!-- End Title Featured Footwear -->
 
         <!-- Featured Footwear Products -->
-        <article class="footwear__product">
-          <!-- Featured Footwear Product 1 -->
-          <figure class="footwear__product-1">
-            <img class="footwear__img" loading="lazy" src="./assets/images/footwear-1.webp" alt="Featured Footwear Product 1">
-            <figcaption class="footwear__para">
-              Nike air max 90
-            </figcaption>
-          </figure>
-          <!-- End Featured Footwear Product 1 -->
-
-          <!-- Featured Footwear Product 2 -->
-          <figure class="footwear__product-2">
-            <img class="footwear__img" loading="lazy" src="./assets/images/footwear-2.webp" alt="Featured Footwear Product 2">
-            <figcaption class="footwear__para">
-              Nike blazer
-            </figcaption>
-          </figure>
-          <!-- End Featured Footwear Product 2 -->
-
-          <!-- Featured Footwear Product 3 -->
-          <figure class="footwear__product-3">
-            <img class="footwear__img" loading="lazy" src="./assets/images/footwear-3.webp" alt="Featured Footwear Product 3">
-            <figcaption class="footwear__para">
-              Nike air vapormax
-            </figcaption>
-          </figure>
-          <!-- End Featured Footwear Product 3 -->
-
-          <!-- Featured Footwear Product 4 -->
-          <figure class="footwear__product-4">
-            <img class="footwear__img" loading="lazy" src="./assets/images/footwear-4.webp" alt="Featured Footwear Product 4">
-            <figcaption class="footwear__para">
-              Nike react infinity
-            </figcaption>
-          </figure>
-          <!-- End Featured Footwear Product 4 -->
-
-          <!-- Featured Footwear Product 5 -->
-          <figure class="footwear__product-5">
-            <img class="footwear__img" loading="lazy" src="./assets/images/footwear-5.webp" alt="Featured Footwear Product 5">
-            <figcaption class="footwear__para">
-              Nike air force
-            </figcaption>
-          </figure>
-          <!-- End Featured Footwear Product 5 -->
-        </article>
+        <ul class="footwear__product display" id="list-footwears"></ul>
+        <div class="loading-indicator">
+          <div class="loading"></div>
+        </div>
         <!-- End Featured Footwear Products -->
+
+        <!-- Back to landing page -->
+        <a href="./" class="footwear__detail-back hide">Back to landing</a>
+        <!-- End Back to landing page -->
+
+        <!-- Featured Footwear Product Detail -->
+        <div id="detail-product" class="footwear__detail hide"></div>
+        <!-- End Featured Footwear Product Detail -->
       </section>
       <!-- End Featured Footwear -->
 
       <!--  Your Daily Source For Sport -->
-      <section class="daily-source">
+      <section class="daily-source display">
         <!-- Title Daily Source -->
         <h3 class="daily-source__title">Your daily source for sport</h3>
         <!-- End Title Daily Source -->
 
         <!-- Daily Source Products -->
-        <article class="daily-source__product">
+        <ul class="daily-source__product">
           <!-- Daily Source Product 1 -->
-          <figure class="daily-source__product-1">
+          <li class="daily-source__product-item">
             <img class="daily-source__img" loading="lazy" src="./assets/images/daily-source-1.webp" alt="Daily Source Product 1">
-          </figure>
+          </li>
           <!-- End Daily Source Product 1 -->
 
           <!-- Daily Source Product 2 -->
-          <figure class="daily-source__product-2">
+          <li class="daily-source__product-item">
             <img class="daily-source__img" loading="lazy" src="./assets/images/daily-source-2.webp" alt="Daily Source Product 2">
-          </figure>
+          </li>
           <!-- End Daily Source Product 2 -->
-        </article>
+        </ul>
         <!-- End Daily Source Products -->
       </section>
       <!-- End Your Daily Source For Sport -->
+      <div class="modal-overlay hide"></div>
     </main>
     <!-- End of Main Section -->
+
+    <script defer type="module" src="./scripts/landing.ts"></script>
   </body>
 
 </html>

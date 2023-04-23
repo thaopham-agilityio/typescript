@@ -9,6 +9,8 @@
   > .item {
     > img {
       max-height: 84px;
+      aspect-ratio: 52 / 21;
+      object-fit: contain;
     }
   }
 }

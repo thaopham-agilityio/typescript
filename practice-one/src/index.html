@@ -9,12 +9,9 @@
     <meta name="description" content="Pratice typescript and javascript">
     <meta name="author" content="Thao Pham">
     <link rel="apple-touch-icon" href="./assets/images/logo-nike.svg">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link href="./stylesheets/app.scss" rel="stylesheet">
     <link href="./stylesheets/app-mobile.scss" rel="stylesheet" media="screen and (max-width: 767px)">
     <link href="./stylesheets/app-tablet.scss" rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 1024px)">
-    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   </head>
 
   <body id="page-body">
@@ -75,55 +72,44 @@
         <!-- endTitle Banner 1 -->
 
         <!-- Ad Banner carousel -->
-        <div class="discover__banner-carousel container">
-          <div id="carousel-simple" class="carousel slide" data-ride="carousel">
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-              <li class="dots active" data-target="#carousel-simple" data-slide-to="0"></li>
-              <li class="dots" data-target="#carousel-simple" data-slide-to="1"></li>
-              <li class="dots" data-target="#carousel-simple" data-slide-to="2"></li>
-              <li class="dots" data-target="#carousel-simple" data-slide-to="3"></li>
-              <li class="dots" data-target="#carousel-simple" data-slide-to="4"></li>
-              <li class="dots" data-target="#carousel-simple" data-slide-to="5"></li>
-              <li class="dots" data-target="#carousel-simple" data-slide-to="6"></li>
-              <li class="dots" data-target="#carousel-simple" data-slide-to="7"></li>
-            </ol>
-
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner">
-              <div class="item active">
+        <div class="discover__banner-carousel">
+          <!-- Wrapper for slides -->
+          <div class="slider-wrap">
+            <ul class="slider">
+              <li class="item">
                 <img class="discover__product" width="208" height="84" loading="lazy" src="https://i.ibb.co/8M1vLVp/discover.webp" alt="The new pegasus 37" />
                 <p class="discover__name">The new pegasus 37</p>
-              </div>
-              <div class="item">
+              </li>
+              <li class="item">
                 <img class="discover__product" width="208" height="84" loading="lazy" src="https://i.ibb.co/R9xVFrR/discover-2.webp" alt="Nike Air Zoom Pegasus 35" />
                 <p class="discover__name">Nike Air Zoom Pegasus 35</p>
-              </div>
-              <div class="item">
+              </li>
+              <li class="item">
                 <img class="discover__product" width="208" height="84" loading="lazy" src="https://i.ibb.co/DwLJjhb/discover-3.webp" alt="Nike Free Sports shoes" />
                 <p class="discover__name">Nike Free Sports shoes</p>
-              </div>
-              <div class="item">
+              </li>
+              <li class="item">
                 <img class="discover__product" width="208" height="84" loading="lazy" src="https://i.ibb.co/XZVDn2G/discover-4.webp" alt="Nike Air Zoom Pegasus 34" />
                 <p class="discover__name">Nike Air Zoom Pegasus 34</p>
-              </div>
-              <div class="item">
+              </li>
+              <li class="item">
                 <img class="discover__product" width="208" height="84" loading="lazy" src="https://i.ibb.co/F7jKZG6/discover-5.webp" alt="Nike Air Zoom Pegasus 35" />
                 <p class="discover__name">Nike Air Zoom Pegasus 35</p>
-              </div>
-              <div class="item">
+              </li>
+              <li class="item">
                 <img class="discover__product" width="208" height="84" loading="lazy" src="https://i.ibb.co/s6JwbD2/discover-6.webp" alt="Sports shoes Nike 35" />
                 <p class="discover__name">Sports shoes Nike 35</p>
-              </div>
-              <div class="item">
+              </li>
+              <li class="item">
                 <img class="discover__product" width="208" height="84" loading="lazy" src="https://i.ibb.co/71Cc5Rg/discover-7.webp" alt="Nike Air Zoom Pegasus 35" />
                 <p class="discover__name">Nike Air Zoom Pegasus 35</p>
-              </div>
-              <div class="item">
+              </li>
+              <li class="item">
                 <img class="discover__product" width="208" height="84" loading="lazy" src="https://i.ibb.co/gdCZkBG/discover-8.webp" alt="Sneakers Nike Air Max" />
                 <p class="discover__name">Sneakers Nike Air Max</p>
-              </div>
-            </div>
+              </li>
+            </ul>
+            <div class="dot-navigation"></div>
           </div>
         </div>
         <!-- End Ad Banner 1 -->
@@ -197,6 +183,7 @@
     </main>
     <!-- End of Main Section -->
 
+    <script defer src="./scripts/carousel.js"></script>
     <script defer type="module" src="./scripts/landing.ts"></script>
   </body>
 

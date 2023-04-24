@@ -20,8 +20,8 @@
   }
 
   &__product {
-    @extend %margin-center;
     aspect-ratio: 52 / 21;
+    object-fit: contain;
     width: 100%;
     max-width: 208px;
   }

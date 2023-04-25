@@ -18,7 +18,6 @@
     @extend %absolute;
     @extend %text-center;
     @extend %padding-0;
-    @extend %hide;
     top: 0;
     left: 0;
     right: 0;
@@ -29,11 +28,6 @@
     &.active {
       @extend %relative;
       @extend %block;
-      @extend %visibility;
-      @extend %z-index-1;
-      top: unset;
-      left: unset;
-      right: unset;
       opacity: 1;
     }
   }

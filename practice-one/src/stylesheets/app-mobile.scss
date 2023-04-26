@@ -24,6 +24,16 @@
     position: relative;
   }
 
+  .dot {
+    &-navigation {
+      .dot {
+        width: 10px;
+        height: 10px;
+        margin: 0 8px;
+      }
+    }
+  }
+
   // Featured Footwear
   .footwear {
     &__product {
@@ -37,12 +47,22 @@
         margin-left: 0;
       }
     }
+
+    &__img {
+      width: 70%;
+      max-width: 180px;
+    }
   }
 
   // Daily Source
   .daily-source {
     &__product {
       flex-direction: column;
+    }
+
+    &__img {
+      width: 50%;
+      max-width: 330px;
     }
   }
 

@@ -1,84 +1,87 @@
-.carousel-inner {
-  > .item {
-    > img {
-      @extend %margin-center;
-      max-height: 84px;
+// ======================================================
+// Component :: Discover - Carousel
+// ======================================================
+
+.slider {
+  @extend %relative;
+  @extend %text-center;
+  @extend %margin-0;
+  @extend %padding-0;
+  @extend %list-style-type-none;
+  width: 100%;
+
+  &-wrap {
+    @extend %relative;
+  }
+
+  .item {
+    @extend %absolute;
+    @extend %text-center;
+    @extend %padding-0;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+    transition: all 0.2s ease-in;
+    opacity: 0;
+
+    &.active {
+      @extend %relative;
+      @extend %block;
+      opacity: 1;
     }
   }
 }
+.dot {
+  &-navigation {
+    @extend %text-center;
+    @extend %margin-0;
+    @extend %padding-0;
+    @extend %list-style-type-none;
 
-.container {
-  @extend %relative;
-  width: 100%;
-}
+    .dot {
+      @extend %inline-block;
+      @extend %cursor-pointer;
+      width: 15px;
+      height: 15px;
+      margin: 0 10px;
+      border-radius: 50%;
 
-.slide {
-  position: absolute;
-  padding: 16px;
-  top: 0;
-  left: 0;
-  width: 100%;
-  margin: 0;
-  transition: 1s ease-in-out;
-  overflow: hidden;
-  min-height: 184px;
-}
+      &.active {
+        border: 1px solid rgba(255, 255, 255, 1);
+      }
 
-.carousel-indicators {
-  display: flex;
-  margin: 5px auto;
-  width: fit-content;
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 16px;
-  gap: 20px;
-  display: flex;
-  justify-content: center;
-  list-style-type: none;
-  z-index: 0;
+      &:nth-child(1) {
+        background: conic-gradient(from 90deg at 50% 50%, #1e2d36 0deg, #bbe08e 360deg);
+      }
 
-  .dots {
-    @extend %cursor-pointer;
-    height: 15px;
-    width: 15px;
-    border-radius: 50%;
-    border: 0;
+      &:nth-child(2) {
+        background: conic-gradient(from 90deg at 50% 50%, #5b5b5c 0deg, #cacaca 360deg);
+      }
 
-    &.active {
-      border: 1px solid $border-form;
-    }
+      &:nth-child(3) {
+        background: conic-gradient(from 90deg at 50% 50%, #fff 0deg, #000 360deg);
+      }
 
-    &:nth-child(1) {
-      background: conic-gradient(from 90deg at 50% 50%, #1E2D36 0deg, #BBE08E 360deg);
-    }
+      &:nth-child(4) {
+        background: conic-gradient(from 90deg at 50% 50%, #e79ebb 0deg, #b3c4b3 360deg);
+      }
 
-    &:nth-child(2) {
-      background: conic-gradient(from 90deg at 50% 50%, #5B5B5C 0deg, #CACACA 360deg);
-    }
+      &:nth-child(5) {
+        background: conic-gradient(from 90deg at 50% 50%, #000 0deg, #fff 360deg);
+      }
 
-    &:nth-child(3) {
-      background: conic-gradient(from 90deg at 50% 50%, #FFFFFF 0deg, #000000 360deg);
-    }
+      &:nth-child(6) {
+        background: conic-gradient(from 90deg at 50% 50%, #79b2ce 0deg, #ee797e 360deg);
+      }
 
-    &:nth-child(4) {
-      background: conic-gradient(from 90deg at 50% 50%, #E79EBB 0deg, #B3C4B3 360deg);
-    }
+      &:nth-child(7) {
+        background: conic-gradient(from 90deg at 50% 50%, #79a5c0 0deg, #8a8ea3 360deg);
+      }
 
-    &:nth-child(5) {
-      background: conic-gradient(from 90deg at 50% 50%, #000000 0deg, #FFFFFF 360deg);
-    }
-
-    &:nth-child(6) {
-      background: conic-gradient(from 90deg at 50% 50%, #79B2CE 0deg, #EE797E 360deg);
-    }
-
-    &:nth-child(7) {
-      background: conic-gradient(from 90deg at 50% 50%, #79A5C0 0deg, #8A8EA3 360deg);
-    }
-
-    &:nth-child(8) {
-      background: radial-gradient(100% 100% at 50% 0%, #F4EA14 0%, #7F4F9F 100%);
+      &:nth-child(8) {
+        background: radial-gradient(100% 100% at 50% 0%, #f4ea14 0%, #7f4f9f 100%);
+      }
     }
   }
 }

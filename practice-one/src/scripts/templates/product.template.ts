@@ -32,7 +32,7 @@ export const productsListTemple = ({
 export const footwearsListTemple = ({ id, productName, productUrl }: Product): string =>
   `<li class="footwear__product-item" id=${id}>
     <div class="footwear__product-link">
-      <img class="footwear__img" loading="lazy" src="${productUrl}" alt="Featured Footwear Product of ${productName}" data-action="${Action.LINK}">
+      <img class="footwear__img" src="${productUrl}" alt="Featured Footwear Product of ${productName}" data-action="${Action.LINK}">
       <p class="footwear__para" data-action="${Action.LINK}">${productName}</p>
     </div>
   </li>`;

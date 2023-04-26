@@ -43,7 +43,7 @@ export const productDetailTemple = ({
   description,
   productUrl,
 }: Product): string => {
-  return `<img class="footwear__detail-img" loading="lazy" alt="Product" src="${productUrl}">
+  return `<img class="footwear__detail-img" alt="Product" src="${productUrl}">
           <div class="footwear__detail-content">
             <h3 class="footwear__detail-title">${productName}</h3>
             <p class="footwear__detail-price">Price: ${price}$</p>

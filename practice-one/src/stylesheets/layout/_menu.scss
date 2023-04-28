@@ -49,8 +49,8 @@
   }
 
   &-button,
-  &-button:before,
-  &-button:after {
+  &-button::before,
+  &-button::after {
     @extend %block;
     @extend %absolute;
     background-color: $bg-color-secondary;
@@ -61,14 +61,14 @@
   }
 
   &-button {
-    &:before {
+    &::before {
       content: '';
       margin-top: -8px;
     }
   }
 
   &-button {
-    &:after {
+    &::after {
       content: '';
       margin-top: 8px;
     }
@@ -82,12 +82,12 @@
         .menu-button {
           background: rgba(255, 255, 255, 0);
 
-          &:before {
+          &::before {
             margin-top: 0px;
             transform: rotate(405deg);
           }
 
-          &:after {
+          &::after {
             margin-top: 0px;
             transform: rotate(-405deg);
           }

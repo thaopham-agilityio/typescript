@@ -14,18 +14,13 @@
     box-shadow: 0px 20px 20px rgb(126 142 177 / 12%);
   }
 
-  &__contents {
+  &__list {
     background-color: $bg-color-secondary;
-    border: 1px solid $border-main;
     border-radius: 8px;
     font-size: $text-content-normal;
     margin: 30px 0;
     -webkit-box-shadow: 0px 20px 20px rgb(126 142 177 / 12%);
     box-shadow: 0px 20px 20px rgb(126 142 177 / 12%);
-  }
-
-  &__list {
-    padding: 10px 0;
 
     .name {
       max-width: 250px;
@@ -44,6 +39,7 @@
       @extend %justify-center;
       @extend %item-center;
       height: 30px;
+      padding: 10px 0;
       font-size: $text-none-content;
       font-weight: $font-weight-medium;
       color: rgb(126, 142, 177);
@@ -63,7 +59,7 @@
   &__info {
     @extend %list-style-type-none;
     @extend %item-center;
-    padding: 10px 20px;
+    padding: 20px;
     width: calc(100% - 40px);
     display: grid;
     grid-template-columns: 60px 250px 60px 300px auto auto 250px;
@@ -108,6 +104,117 @@
       aspect-ratio: 4 / 5;
       object-fit: contain;
       max-width: 300px;
+    }
+  }
+}
+
+.product {
+  &__footwear {
+    @extend %flex;
+    grid-gap: 20px;
+
+    &-title {
+      @extend %text-uppercase;
+      font-family: $default-family;
+      font-size: $text-footwear-title;
+      line-height: 34px;
+      margin: 23px 0 15px;
+
+      &.hide {
+        @extend %none;
+      }
+    }
+
+    &-item {
+      @extend %flex;
+      @extend %flex-column;
+      background-color: $footwear-bg-color;
+      border-radius: 10px;
+      box-shadow: 0px 2px 12px rgba(23, 29, 41, 0.12);
+    }
+
+    &-link {
+      @extend %text-center;
+      @extend %cursor-pointer;
+      width: 100%;
+      height: 100%;
+    }
+
+    &-img {
+      @extend %margin-center;
+      aspect-ratio: 4 / 5;
+      object-fit: contain;
+      width: 100%;
+      height: auto;
+      max-width: 315px;
+    }
+
+    &-para {
+      @extend %text-center;
+      @extend %text-uppercase;
+      color: $color-footwear;
+      font-size: $text-footwear;
+      font-family: $default-family;
+      background-color: $footwear-para-bg-color;
+      border-radius: 0px 0px 10px 10px;
+      padding: 15px;
+    }
+
+    &.hide {
+      @extend %none;
+    }
+  }
+
+  &__detail {
+    @extend %flex;
+    font-family: $font-secondary;
+    margin: 30px 0;
+
+    &.hide {
+      @extend %margin-0;
+    }
+
+    &-img {
+      aspect-ratio: 4/5;
+      object-fit: contain;
+      background-color: $footwear-bg-color;
+      margin-bottom: 30px;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    &-content {
+      margin-left: 40px;
+    }
+
+    &-title {
+      font-size: $text-large;
+      line-height: 1.2;
+    }
+
+    &-price {
+      font-size: $text-medium;
+    }
+
+    &-desc {
+      font-size: $text-content-normal;
+      line-height: 1.5;
+    }
+
+    &-title,
+    &-price,
+    &-desc {
+      margin-bottom: 20px;
+    }
+
+    &-back {
+      @extend %block;
+      @extend %text-decoration-none;
+      color: $color-footwear-back;
+
+      &.hide {
+        @extend %none;
+      }
     }
   }
 }

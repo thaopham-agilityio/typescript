@@ -34,26 +34,6 @@
     }
   }
 
-  // Featured Footwear
-  .footwear {
-    &__product {
-      flex-direction: column;
-    }
-
-    &__detail {
-      display: block;
-
-      &-content {
-        margin-left: 0;
-      }
-    }
-
-    &__img {
-      width: 160px;
-      height: auto;
-    }
-  }
-
   // Daily Source
   .daily-source {
     &__product {
@@ -108,6 +88,25 @@
     }
   }
 
+  .product {
+    &__footwear {
+      flex-direction: column;
+
+      &-img {
+        width: 160px;
+        height: auto;
+      }
+    }
+
+    &__detail {
+      display: block;
+
+      &-content {
+        margin-left: 0;
+      }
+    }
+  }
+
   // Button
   .btn {
     &-secondary {
@@ -131,14 +130,16 @@
   }
 
   // Modal
-  .modal {
+  .modal,
+  .confirm-modal {
     position: absolute;
     top: 0;
-    transform: translate(-50%, 0);
+    transform: translate(-50%, 40px);
 
     &-container {
       max-width: 100%;
-      min-width: 300px;
+      min-width: 360px;
+      margin-bottom: 40px;
     }
   }
 
@@ -207,19 +208,6 @@
     }
   }
 
-  // Featured Footwear
-  .footwear {
-    &__title {
-      font-size: $text-footwear-title-small;
-      line-height: 28px;
-    }
-
-    &__para {
-      font-size: $text-small;
-      line-height: 16px;
-    }
-  }
-
   // Daily Source
   .daily-source {
     &__title {
@@ -247,6 +235,20 @@
 
     &__detail {
       padding: 0 20px;
+    }
+  }
+
+  .product {
+    &__footwear {
+      &-title {
+        font-size: $text-footwear-title-small;
+        line-height: 28px;
+      }
+
+      &-para {
+        font-size: $text-small;
+        line-height: 16px;
+      }
     }
   }
 

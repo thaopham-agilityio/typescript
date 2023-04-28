@@ -1,14 +1,14 @@
 import { Product, Action } from '../interfaces/product.interface';
 import { createElement, displayElement } from '../helpers/dom-elements';
-import { TIME_OUT } from '../constants/products';
+import { TIME_OUT, NO_PRODUCT } from '../constants/products';
 import { footwearsListTemple, productDetailTemple } from '../templates/product.template';
 
 export default class FootwearView {
   private overlay: HTMLDivElement;
   private discover: HTMLDivElement;
   private dailySource: HTMLDivElement;
-  private footwearTitle: HTMLDivElement;
-  private footwearBack: HTMLDivElement;
+  private productTitle: HTMLDivElement;
+  private productBack: HTMLDivElement;
   private productsList: HTMLDivElement;
   private listProduct: HTMLElement;
   private detailProduct: HTMLElement;
@@ -17,9 +17,9 @@ export default class FootwearView {
     this.overlay = <HTMLDivElement>document.querySelector('.modal-overlay');
     this.discover = <HTMLDivElement>document.querySelector('.discover');
     this.dailySource = <HTMLDivElement>document.querySelector('.daily-source');
-    this.footwearTitle = <HTMLDivElement>document.querySelector('.footwear__title');
-    this.footwearBack = <HTMLDivElement>document.querySelector('.footwear__detail-back');
-    this.productsList = <HTMLDivElement>document.querySelector('.footwear__product');
+    this.productTitle = <HTMLDivElement>document.querySelector('.product__footwear-title');
+    this.productBack = <HTMLDivElement>document.querySelector('.product__detail-back');
+    this.productsList = <HTMLDivElement>document.querySelector('.product__footwear');
     this.listProduct = <HTMLElement>document.getElementById('list-footwears');
     this.detailProduct = <HTMLElement>document.getElementById('detail-product');
   }
@@ -48,7 +48,7 @@ export default class FootwearView {
       return this.renderProducts(list.reverse());
     } else {
       const noneProductMessage = createElement('div', 'message');
-      noneProductMessage.textContent = 'Have no product yet !';
+      noneProductMessage.textContent = NO_PRODUCT;
       this.listProduct.appendChild(noneProductMessage);
     }
   };
@@ -90,9 +90,9 @@ export default class FootwearView {
         const id = e.target.parentNode.parentNode.id;
         this.discover.classList.replace('display', 'hide');
         this.dailySource.classList.replace('display', 'hide');
-        this.footwearTitle.classList.replace('display', 'hide');
+        this.productTitle.classList.replace('display', 'hide');
         this.productsList.classList.replace('display', 'hide');
-        this.footwearBack.classList.replace('hide', 'display');
+        this.productBack.classList.replace('hide', 'display');
         this.detailProduct.classList.replace('hide', 'display');
         handleProductDetail(id);
       }

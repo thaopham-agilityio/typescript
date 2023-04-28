@@ -1,24 +1,6 @@
 @import 'abstracts/variables';
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
-  // Featured Footwear
-  .footwear {
-    &__product {
-      flex-wrap: wrap;
-      justify-content: space-between;
-
-      &-item {
-        flex-basis: calc(50% - 10px);
-      }
-    }
-
-    &__detail {
-      &-img {
-        max-width: 300px;
-      }
-    }
-  }
-
   // List Products
   .products {
     &__head {
@@ -46,6 +28,23 @@
 
     &-action {
       display: inline-flex;
+    }
+  }
+
+  .product {
+    &__footwear {
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      &-item {
+        flex-basis: calc(50% - 10px);
+      }
+    }
+
+    &__detail {
+      &-img {
+        max-width: 300px;
+      }
     }
   }
 }

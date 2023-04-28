@@ -11,8 +11,8 @@
   position: relative;
   animation: rotate 1s linear infinite;
 
-  &:before,
-  &:after {
+  &::before,
+  &::after {
     content: "";
     box-sizing: border-box;
     position: absolute;
@@ -22,7 +22,7 @@
     animation: prixClipFix 2s linear infinite ;
   }
 
-  &:after{
+  &::after{
     border-color: $color-tertiary;
     animation: prixClipFix 2s linear infinite , rotate 0.5s linear infinite reverse;
     inset: 8px;

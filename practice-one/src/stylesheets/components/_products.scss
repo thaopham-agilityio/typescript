@@ -226,3 +226,312 @@
   padding: 8px 40px;
   width: auto;
 }
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  // List Products
+  .products {
+    &__head {
+      padding: 10px;
+    }
+
+    &__list {
+      .message {
+        font-size: $text-small;
+        height: 20px;
+      }
+    }
+
+    &__info {
+      display: flex;
+
+      .name {
+        width: 200px;
+      }
+
+      .desc {
+        width: 220px;
+      }
+    }
+
+    &-action {
+      display: inline-flex;
+    }
+  }
+
+  .product {
+    &__footwear {
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      &-item {
+        flex-basis: calc(50% - 10px);
+      }
+    }
+
+    &__detail {
+      &-img {
+        max-width: 300px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  // Discover
+  .discover {
+    &__banner {
+      &-carousel,
+      &-sneakers {
+        grid-column: 1 / 3;
+        font-size: $text-banner-para;
+        line-height: 24px;
+      }
+    }
+
+    &__banner {
+      &-sneakers {
+        background-size: cover;
+      }
+    }
+  }
+
+  // Carousel
+  .slide {
+    position: relative;
+  }
+
+  .dot {
+    &-navigation {
+      .dot {
+        width: 10px;
+        height: 10px;
+        margin: 0 8px;
+      }
+    }
+  }
+
+  // Daily Source
+  .daily-source {
+    &__product {
+      flex-direction: column;
+    }
+
+    &__img {
+      width: 240px;
+      height: auto;
+    }
+  }
+
+  // List Products
+  .products {
+    &__head {
+      padding: 10px;
+    }
+
+    &__list {
+      .message {
+        font-size: $text-small;
+        height: 20px;
+      }
+    }
+
+    &__img {
+      &--detail {
+        width: calc(100% - 40px);
+        margin: 0 auto 40px;
+      }
+    }
+
+    &__detail {
+      padding: 0 20px;
+    }
+
+    &__info {
+      display: flex;
+
+      .name {
+        width: 150px;
+      }
+
+      .desc {
+        width: 200px;
+      }
+
+      .created,
+      .updated {
+        display: none;
+      }
+    }
+  }
+
+  .product {
+    &__footwear {
+      flex-direction: column;
+
+      &-img {
+        width: 160px;
+        height: auto;
+      }
+    }
+
+    &__detail {
+      display: block;
+
+      &-content {
+        margin-left: 0;
+      }
+    }
+  }
+
+  // Button
+  .btn {
+    &-secondary {
+      margin-right: 10px;
+    }
+
+    &-add-product {
+      padding: 5px 8px 5px 24px;
+      background-size: $bg-size-secondary;
+      font-size: $text-small;
+    }
+
+    &-view-product,
+    &-edit-product,
+    &-delete-product {
+      display: block;
+      margin-bottom: 5px;
+      margin-right: 5px;
+      min-width: 80px;
+    }
+  }
+
+  // Modal
+  .modal,
+  .confirm-modal {
+    position: absolute;
+    top: 0;
+    transform: translate(-50%, 40px);
+
+    &-container {
+      max-width: 100%;
+      min-width: 360px;
+      margin-bottom: 40px;
+    }
+  }
+
+  .product {
+    &-form {
+      min-width: 320px;
+      margin: 0 auto;
+
+      &.detail {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 767px) {
+  // List Products
+  .products {
+    &-action {
+      display: inline-flex;
+    }
+  }
+
+  // Modal
+  .modal {
+    top: 0;
+    transform: translate(-50%, 0);
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 480px) {
+  // Discover
+  .discover {
+    &__title {
+      font-size: $text-banner-title-small;
+      line-height: 35px;
+    }
+
+    &__banner {
+      &-1,
+      &-2 {
+        font-size: $text-banner-small;
+        line-height: 28px;
+      }
+
+      &--para {
+        font-size: $text-banner-para-small;
+        line-height: 20px;
+      }
+
+      &-2 {
+        .container-ad-text {
+          padding: 20px 15px 15px;
+        }
+
+        .container-ad-links {
+          padding: 20px 15px 15px 0;
+        }
+      }
+
+      &--link {
+        padding: 10px 25px;
+      }
+    }
+  }
+
+  // Daily Source
+  .daily-source {
+    &__title {
+      font-size: $text-daily-source-title-small;
+      line-height: 28px;
+    }
+  }
+
+  // List Products
+  .products {
+    &__img {
+      &--detail {
+        margin: 0 auto 20px;
+      }
+    }
+
+    &__title {
+      font-size: $text-medium;
+    }
+
+    &__price,
+    &__desc {
+      font-size: $text-small;
+    }
+
+    &__detail {
+      padding: 0 20px;
+    }
+  }
+
+  .product {
+    &__footwear {
+      &-title {
+        font-size: $text-footwear-title-small;
+        line-height: 28px;
+      }
+
+      &-para {
+        font-size: $text-small;
+        line-height: 16px;
+      }
+    }
+  }
+
+  .search-input {
+    padding: 5px 30px;
+    border-radius: 5px;
+    background-size: 18px;
+    font-size: $text-small;
+  }
+}

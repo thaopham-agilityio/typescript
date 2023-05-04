@@ -1,0 +1,222 @@
+.menu {
+  @extend %flex;
+  @extend %flex-row;
+  @extend %text-center;
+  @extend %list-style-type-none;
+  @extend %list-style-type-none;
+  @extend %margin-0;
+  @extend %padding-0;
+
+  > &__item {
+    @extend %block;
+    @extend %text-uppercase;
+    @extend %text-decoration-none;
+    font-size: $text-medium;
+    font-family: $default-family;
+    background-color: $color-secondary;
+    color: $color-primary;
+    padding: 15px 38px;
+    overflow: hidden;
+    margin-right: 20px;
+    border-radius: 10px;
+    width: auto;
+
+    &.selected {
+      @extend %bg-transparent;
+      color: $color-secondary;
+    }
+
+    &.board {
+      background-color: $menu-board-bg-color;
+      color: $color-secondary;
+      border-radius: 10px;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &-button {
+    &-container {
+      @extend %none;
+      @extend %cursor-pointer;
+      @extend %flex-column;
+      @extend %justify-center;
+      @extend %item-center;
+      width: $menu-button-width;
+    }
+  }
+
+  &-button,
+  &-button::before,
+  &-button::after {
+    @extend %block;
+    @extend %absolute;
+    background-color: $bg-color-secondary;
+    height: $menu-button-height;
+    width: $menu-button-width;
+    transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    border-radius: 2px;
+  }
+
+  &-button {
+    &::before {
+      content: '';
+      margin-top: -8px;
+    }
+  }
+
+  &-button {
+    &::after {
+      content: '';
+      margin-top: 8px;
+    }
+  }
+
+  &-toggle {
+    @extend %none;
+
+    &:checked {
+      + .menu-button-container {
+        .menu-button {
+          background: rgba(255, 255, 255, 0);
+
+          &::before {
+            margin-top: 0px;
+            transform: rotate(405deg);
+          }
+
+          &::after {
+            margin-top: 0px;
+            transform: rotate(-405deg);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  // Header
+  .header {
+    &__page {
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__wrapper {
+      padding: 0;
+    }
+
+    &__avatar {
+      width: 30px;
+      aspect-ratio: 1 / 1;
+    }
+
+    &__slogan,
+    &__profile {
+      display: none;
+    }
+
+    &__name {
+      font-size: $text-small;
+      line-height: 1.2;
+    }
+
+    &__logo {
+      width: 50%;
+      height: 50%;
+    }
+  }
+
+  .main {
+    &__nav {
+      margin-top: 0;
+    }
+  }
+
+  // Menu
+  .menu {
+    position: absolute;
+    top: 0;
+    margin-top: 40px;
+    left: 0;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+
+    > &__item {
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      padding: 15px 0;
+      width: calc(100% - 2px);
+      color: $color-secondary;
+      background-color: $bg-color-secondary;
+      border-radius: 0;
+
+      &.selected {
+        background-color: $menu-bg-color;
+        color: $color-primary;
+      }
+
+      &.board {
+        border-radius: 0;
+      }
+
+      &:not(:last-child) {
+        border-bottom: 1px solid $menu-border;
+      }
+    }
+
+    &-button {
+      &-container {
+        display: flex;
+      }
+    }
+
+    &-toggle {
+      ~ .menu {
+        a,
+        button {
+          height: 0;
+          margin: 0;
+          padding: 0;
+          border: 0;
+          transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+        }
+      }
+
+      &:checked {
+        ~ .menu {
+          a,
+          button {
+            border-bottom: 1px solid $menu-border;
+            height: auto;
+            padding: 15px 0;
+            color: $color-default;
+            transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+
+            &.board {
+              color: $color-secondary;
+              border-radius: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1399px) {
+  .menu {
+    > &__item {
+      margin-right: 15px;
+      padding: 10px 30px;
+    }
+  }
+}

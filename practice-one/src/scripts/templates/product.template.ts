@@ -98,7 +98,7 @@ export const productModal = ({
           </div>
           <div class="input-row">
             <label for="productPrice" class="modal-label">Product price</label>
-            <input type="number" min="1" class="form-input" name="productPrice" id="productPrice" oninput="this.value = this.value.replace(/\D+/g, '')" placeholder="Product price" value="${price}">
+            <input type="number" min="1" class="form-input" name="productPrice" id="productPrice" placeholder="Product price" value="${price}">
             <p class="validate-message" id="validateProductPrice"></p>
           </div>
           <div class="input-row">

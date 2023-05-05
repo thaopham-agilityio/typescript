@@ -7,7 +7,7 @@
   @extend %margin-0;
   @extend %padding-0;
 
-  > &__item {
+  &__item {
     @extend %block;
     @extend %text-uppercase;
     @extend %text-decoration-none;
@@ -149,7 +149,7 @@
     align-items: center;
     z-index: 2;
 
-    > &__item {
+    &__item {
       display: flex;
       justify-content: center;
       margin: 0;
@@ -214,7 +214,7 @@
 
 @media screen and (min-width: 1200px) and (max-width: 1399px) {
   .menu {
-    > &__item {
+    &__item {
       margin-right: 15px;
       padding: 10px 30px;
     }
